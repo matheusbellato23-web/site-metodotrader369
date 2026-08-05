@@ -1,6 +1,6 @@
 /* ==========================================================================
-   MÉTODO TRADER 369 — MASTERPIECE UX & DESIGN SYSTEM (v10.0)
-   Inspirado no visual único de Cursos Premium (lucastylty.com/minicurso)
+   MÉTODO TRADER 369 — MASTERPIECE UX & DESIGN SYSTEM (v11.0)
+   Opção 1: Masterclass de Elite (Hero 2 Colunas + Mockup do Dashboard)
    Identidade Visual Oficial + Briefing PDF 2026
    ========================================================================== */
 
@@ -12,7 +12,7 @@
   --bg-elevated: #0a0d16;
   --bg-card: #101422;
   --bg-card-active: #161b2c;
-  --bg-glass: rgba(10, 13, 22, 0.85);
+  --bg-glass: rgba(10, 13, 22, 0.88);
 
   --brand-gold: #f59e0b;
   --brand-gold-bright: #fbbf24;
@@ -112,36 +112,6 @@ body {
   color: var(--brand-gold-bright);
   text-transform: uppercase;
   letter-spacing: 0.5px;
-}
-
-.triad-sub-bar {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.75rem;
-  font-family: var(--font-display);
-  font-size: 0.85rem;
-  font-weight: 800;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--text-muted);
-}
-
-.dot-orange {
-  width: 7px;
-  height: 7px;
-  background-color: var(--brand-orange);
-  border-radius: 50%;
-  display: inline-block;
-  box-shadow: 0 0 10px var(--brand-orange-glow);
-}
-
-.dot-blue {
-  width: 7px;
-  height: 7px;
-  background-color: var(--brand-blue);
-  border-radius: 50%;
-  display: inline-block;
-  box-shadow: 0 0 10px var(--brand-blue-glow);
 }
 
 /* Pulse Dot */
@@ -283,43 +253,22 @@ nav {
   color: var(--brand-gold-bright);
 }
 
-/* --- HERO SECTION (STYLE LUCAS TYLTY / COURSE HUB) --- */
+/* --- HERO SECTION (OPÇÃO 1: MASTERCLASS DE ELITE IN 2 COLUMNS) --- */
 .hero-section {
-  padding: 160px 0 90px;
+  padding: 150px 0 90px;
   position: relative;
 }
 
-.hero-card-master {
-  background: var(--bg-card);
-  border: 1px solid var(--border-gold);
-  border-radius: 28px;
-  overflow: hidden;
-  box-shadow: var(--shadow-card), var(--shadow-gold);
+.hero-grid-2col {
   display: grid;
-  grid-template-columns: 1fr;
-}
-
-.hero-media-cover {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-}
-
-.hero-cover-img {
-  width: 100%;
-  height: auto;
-  max-height: 520px;
-  object-fit: cover;
-  display: block;
-}
-
-.hero-body-padding {
-  padding: 3rem;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 3.5rem;
+  align-items: center;
 }
 
 .hero-h1 {
   font-family: var(--font-display);
-  font-size: clamp(2.3rem, 4.2vw, 3.6rem);
+  font-size: clamp(2.3rem, 4vw, 3.4rem);
   font-weight: 900;
   line-height: 1.15;
   margin: 1.25rem 0;
@@ -332,7 +281,7 @@ nav {
   padding: 1.25rem 1.5rem;
   border-radius: 0 14px 14px 0;
   font-family: var(--font-display);
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   font-weight: 700;
   color: var(--brand-gold-bright);
   margin-bottom: 1.8rem;
@@ -340,11 +289,10 @@ nav {
 }
 
 .hero-p {
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   color: var(--text-muted);
   line-height: 1.7;
   margin-bottom: 2.5rem;
-  max-width: 780px;
 }
 
 .hero-actions {
@@ -357,24 +305,80 @@ nav {
 .hero-stats-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 1.5rem;
+  gap: 1.25rem;
   padding-top: 2rem;
   border-top: 1px solid var(--border-light);
 }
 
 .stat-val {
   font-family: var(--font-display);
-  font-size: 2rem;
+  font-size: 1.85rem;
   font-weight: 800;
   color: var(--brand-gold-bright);
   line-height: 1;
 }
 
 .stat-lbl {
-  font-size: 0.825rem;
+  font-size: 0.8rem;
   color: var(--text-dim);
   font-weight: 600;
   margin-top: 0.3rem;
+}
+
+/* RIGHT VISUAL MOCKUP CARD */
+.hero-right-visual {
+  position: relative;
+}
+
+.hero-mockup-card {
+  position: relative;
+  background: var(--bg-card);
+  border: 1px solid var(--border-gold);
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: var(--shadow-card), var(--shadow-gold);
+  transition: var(--transition);
+}
+
+.hero-mockup-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--brand-gold-bright);
+}
+
+.hero-mockup-img {
+  width: 100%;
+  height: 480px;
+  object-fit: cover;
+  display: block;
+}
+
+.mockup-floating-badge {
+  position: absolute;
+  z-index: 10;
+  background: rgba(10, 13, 22, 0.92);
+  backdrop-filter: blur(15px);
+  border: 1px solid var(--border-light);
+  padding: 0.8rem 1.4rem;
+  border-radius: 14px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-white);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.top-badge {
+  top: 20px;
+  left: 20px;
+  border-color: var(--border-gold);
+}
+
+.bottom-badge {
+  bottom: 20px;
+  right: 20px;
+  border-color: var(--border-gold);
 }
 
 /* --- TICKER MARQUEE --- */
@@ -436,7 +440,7 @@ nav {
   line-height: 1.7;
 }
 
-/* --- INTERACTIVE MODULE PLAYER / TRILHA DE AULAS (LUCAS TYLTY STYLE) --- */
+/* --- INTERACTIVE MODULE PLAYER / TRILHA DE AULAS --- */
 .course-trilha-box {
   background: var(--bg-card);
   border: 1px solid var(--border-gold);
@@ -514,7 +518,7 @@ nav {
 
 .module-thumb-img {
   width: 100%;
-  height: auto;
+  height: 320px;
   display: block;
   object-fit: cover;
 }
@@ -566,7 +570,7 @@ nav {
   margin-top: 0.2rem;
 }
 
-/* --- SIMULADOR INTERATIVO DE GESTÃO DE RISCO (SIMULADOR 369) --- */
+/* --- SIMULADOR INTERATIVO DE GESTÃO DE RISCO --- */
 .simulador-card-box {
   background: var(--bg-card);
   border: 1px solid var(--border-gold);
@@ -623,7 +627,7 @@ nav {
   margin: 1rem 0;
 }
 
-/* --- COMPARATIVO (MÉTODO 369 VS TRADING TRADICIONAL) --- */
+/* --- COMPARATIVO --- */
 .comparison-table-box {
   background: var(--bg-card);
   border: 1px solid var(--border-light);
@@ -674,7 +678,7 @@ nav {
   line-height: 1.55;
 }
 
-/* --- ORBITAL ICON CARDS (DA IDENTIDADE VISUAL OFICIAL) --- */
+/* --- ORBITAL ICON CARDS --- */
 .orbital-cards-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -756,52 +760,6 @@ nav {
   font-size: 1.05rem;
   line-height: 1.75;
   margin-bottom: 1.25rem;
-}
-
-/* --- DIFERENCIAIS (6 PILARES DO BRIEFING) --- */
-.diff-grid-3col {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.75rem;
-}
-
-.diff-card-item {
-  background: var(--bg-card);
-  border: 1px solid var(--border-light);
-  border-radius: 20px;
-  padding: 2.2rem;
-  transition: var(--transition);
-}
-
-.diff-card-item:hover {
-  transform: translateY(-5px);
-  border-color: var(--border-gold);
-}
-
-.diff-icon-holder {
-  width: 54px;
-  height: 54px;
-  background: rgba(245, 158, 11, 0.1);
-  border-radius: 14px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.4rem;
-  color: var(--brand-gold-bright);
-  margin-bottom: 1.5rem;
-}
-
-.diff-card-h3 {
-  font-family: var(--font-display);
-  font-size: 1.25rem;
-  font-weight: 800;
-  margin-bottom: 0.75rem;
-}
-
-.diff-card-p {
-  color: var(--text-muted);
-  font-size: 0.95rem;
-  line-height: 1.6;
 }
 
 /* --- FAQ ACCORDION --- */
@@ -960,7 +918,7 @@ footer {
 
 /* RESPONSIVE */
 @media (max-width: 1024px) {
-  .hero-card-master, .mentor-grid, .course-screen-grid, .simulador-grid, .comparison-grid {
+  .hero-grid-2col, .mentor-grid, .course-screen-grid, .simulador-grid, .comparison-grid {
     grid-template-columns: 1fr;
     gap: 2.5rem;
   }
@@ -970,17 +928,21 @@ footer {
     border-bottom: 1px solid var(--border-light);
   }
 
-  .diff-grid-3col, .orbital-cards-grid {
+  .orbital-cards-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
   .hero-stats-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .hero-mockup-img {
+    height: 380px;
+  }
 }
 
 @media (max-width: 680px) {
-  .diff-grid-3col, .orbital-cards-grid {
+  .orbital-cards-grid {
     grid-template-columns: 1fr;
   }
 
@@ -988,7 +950,7 @@ footer {
     font-size: 2.1rem;
   }
 
-  .hero-body-padding, .simulador-card-box, .course-screen-panel {
+  .simulador-card-box, .course-screen-panel {
     padding: 1.75rem 1.25rem;
   }
 
