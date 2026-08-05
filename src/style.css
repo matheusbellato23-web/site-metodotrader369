@@ -1,13 +1,11 @@
 /* ==========================================================================
-   MÉTODO TRADER 369 — MASTERPIECE UX & DESIGN SYSTEM (v11.0)
-   Opção 1: Masterclass de Elite (Hero 2 Colunas + Mockup do Dashboard)
-   Identidade Visual Oficial + Briefing PDF 2026
+   MÉTODO TRADER 369 — MASTERPIECE UX & DESIGN SYSTEM (v12.0)
+   Opção 1 (Hero Masterclass) + Opção B (Grade de Cards 3D)
    ========================================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800;900&family=Space+Grotesk:wght@600;700;800&display=swap');
 
 :root {
-  /* Cores Principais - Obsidian Dark, Metallic Gold & Electric Accents */
   --bg-obsidian: #05060a;
   --bg-elevated: #0a0d16;
   --bg-card: #101422;
@@ -325,7 +323,6 @@ nav {
   margin-top: 0.3rem;
 }
 
-/* RIGHT VISUAL MOCKUP CARD */
 .hero-right-visual {
   position: relative;
 }
@@ -440,134 +437,109 @@ nav {
   line-height: 1.7;
 }
 
-/* --- INTERACTIVE MODULE PLAYER / TRILHA DE AULAS --- */
-.course-trilha-box {
+/* --- SEÇÃO 2 OPÇÃO B: CARDS 3D GRID --- */
+.cards-3d-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.card-3d-item {
   background: var(--bg-card);
-  border: 1px solid var(--border-gold);
-  border-radius: 28px;
+  border: 1px solid var(--border-light);
+  border-radius: 24px;
   overflow: hidden;
+  transition: var(--transition);
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-3d-item:hover {
+  transform: translateY(-8px) scale(1.01);
+  border-color: var(--border-gold);
   box-shadow: var(--shadow-card), var(--shadow-gold);
 }
 
-.course-tabs-nav {
-  display: flex;
-  background: var(--bg-elevated);
-  border-bottom: 1px solid var(--border-light);
-  overflow-x: auto;
-}
-
-.course-tab-btn {
-  flex: 1;
-  min-width: 180px;
-  padding: 1.3rem 1.5rem;
-  background: none;
-  border: none;
-  border-bottom: 3px solid transparent;
-  color: var(--text-muted);
-  font-family: var(--font-display);
-  font-size: 1rem;
-  font-weight: 800;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.75rem;
-  transition: var(--transition);
-}
-
-.course-tab-btn:hover {
-  color: var(--text-white);
-  background: rgba(255, 255, 255, 0.03);
-}
-
-.course-tab-btn.active {
-  color: var(--brand-gold-bright);
-  border-bottom-color: var(--brand-gold);
-  background: rgba(245, 158, 11, 0.08);
-}
-
-.course-screen-panel {
-  padding: 3rem;
-  display: none;
-}
-
-.course-screen-panel.active {
-  display: block;
-  animation: fadeIn 0.4s ease;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.course-screen-grid {
+.card-3d-featured {
+  grid-column: span 3;
+  border-color: var(--border-gold);
+  background: linear-gradient(135deg, var(--bg-card) 0%, rgba(245, 158, 11, 0.08) 100%);
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 3rem;
+  grid-template-columns: 1fr 1.2fr;
   align-items: center;
 }
 
-.module-thumb-box {
+.card-3d-cover-wrap {
   position: relative;
-  border-radius: 20px;
-  overflow: hidden;
-  border: 1px solid var(--border-light);
-  box-shadow: var(--shadow-card);
-}
-
-.module-thumb-img {
   width: 100%;
-  height: 320px;
-  display: block;
+  height: 220px;
+  overflow: hidden;
+}
+
+.card-3d-featured .card-3d-cover-wrap {
+  height: 100%;
+  min-height: 340px;
+}
+
+.card-3d-cover-img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
+  display: block;
 }
 
-.play-badge-overlay {
+.card-3d-badge-tag {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 70px;
-  height: 70px;
-  background: rgba(245, 158, 11, 0.9);
-  color: #000;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.6rem;
-  box-shadow: 0 0 30px var(--brand-gold-glow);
-  cursor: pointer;
+  top: 16px;
+  left: 16px;
+  background: rgba(10, 13, 22, 0.88);
+  backdrop-filter: blur(10px);
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--brand-gold-bright);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border: 1px solid var(--border-light);
 }
 
-.module-title-h3 {
+.card-3d-body {
+  padding: 2.2rem;
+}
+
+.card-3d-title {
   font-family: var(--font-display);
-  font-size: 1.8rem;
+  font-size: 1.4rem;
   font-weight: 800;
   color: var(--text-white);
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
+  line-height: 1.3;
 }
 
-.module-goals-list {
+.card-3d-desc {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.card-3d-bullets {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 0.9rem;
-  margin: 1.5rem 0 2rem;
+  gap: 0.6rem;
+  margin-bottom: 1.8rem;
 }
 
-.module-goal-item {
+.card-3d-bullets li {
   display: flex;
-  align-items: flex-start;
-  gap: 0.75rem;
-  font-size: 1rem;
-  color: var(--text-muted);
-}
-
-.module-goal-item i {
-  color: var(--brand-gold-bright);
-  margin-top: 0.2rem;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.9rem;
+  color: var(--text-light);
 }
 
 /* --- SIMULADOR INTERATIVO DE GESTÃO DE RISCO --- */
@@ -918,17 +890,16 @@ footer {
 
 /* RESPONSIVE */
 @media (max-width: 1024px) {
-  .hero-grid-2col, .mentor-grid, .course-screen-grid, .simulador-grid, .comparison-grid {
+  .hero-grid-2col, .mentor-grid, .simulador-grid, .comparison-grid, .card-3d-featured {
     grid-template-columns: 1fr;
     gap: 2.5rem;
   }
 
-  .comp-col-bad {
-    border-right: none;
-    border-bottom: 1px solid var(--border-light);
+  .card-3d-featured {
+    grid-column: span 1;
   }
 
-  .orbital-cards-grid {
+  .cards-3d-grid, .orbital-cards-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
@@ -942,7 +913,7 @@ footer {
 }
 
 @media (max-width: 680px) {
-  .orbital-cards-grid {
+  .cards-3d-grid, .orbital-cards-grid {
     grid-template-columns: 1fr;
   }
 
@@ -950,7 +921,7 @@ footer {
     font-size: 2.1rem;
   }
 
-  .simulador-card-box, .course-screen-panel {
+  .simulador-card-box {
     padding: 1.75rem 1.25rem;
   }
 
