@@ -1,42 +1,47 @@
 /* ==========================================================================
-   MÉTODO TRADER 369 — ESTRUTURA OFICIAL BASEADA EM CAIROTRADER.COM.BR (v9.0)
-   Single-Stream High-Conversion Action Hub & Sales Page
+   MÉTODO TRADER 369 — MASTERPIECE UX & DESIGN SYSTEM (v10.0)
+   Inspirado no visual único de Cursos Premium (lucastylty.com/minicurso)
+   Identidade Visual Oficial + Briefing PDF 2026
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800;900&family=Space+Grotesk:wght@600;700;800&display=swap');
 
 :root {
-  --bg-dark: #07080c;
-  --bg-surface: #0c0e15;
-  --bg-card: #111420;
-  --bg-card-hover: #161b2a;
+  /* Cores Principais - Obsidian Dark, Metallic Gold & Electric Accents */
+  --bg-obsidian: #05060a;
+  --bg-elevated: #0a0d16;
+  --bg-card: #101422;
+  --bg-card-active: #161b2c;
+  --bg-glass: rgba(10, 13, 22, 0.85);
 
+  --brand-gold: #f59e0b;
+  --brand-gold-bright: #fbbf24;
+  --brand-gold-glow: rgba(245, 158, 11, 0.28);
+  
   --brand-orange: #ff7a00;
-  --brand-orange-bright: #ff9100;
-  --brand-orange-glow: rgba(255, 122, 0, 0.3);
-
   --brand-blue: #0088ff;
-  --brand-blue-bright: #33a0ff;
   --brand-blue-glow: rgba(0, 136, 255, 0.25);
-
-  --accent-green: #25d366;
-  --green-glow: rgba(37, 211, 102, 0.35);
+  
+  --accent-emerald: #10b981;
+  --emerald-glow: rgba(16, 185, 129, 0.35);
 
   --text-white: #ffffff;
-  --text-light: #f1f5f9;
+  --text-light: #f8fafc;
   --text-muted: #94a3b8;
   --text-dim: #64748b;
 
   --border-light: rgba(255, 255, 255, 0.08);
+  --border-gold: rgba(245, 158, 11, 0.35);
   --border-orange: rgba(255, 122, 0, 0.35);
   --border-blue: rgba(0, 136, 255, 0.35);
 
-  --font-display: 'Outfit', sans-serif;
+  --font-display: 'Outfit', 'Space Grotesk', sans-serif;
   --font-body: 'Plus Jakarta Sans', sans-serif;
 
-  --max-w-hub: 820px;
-  --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  --shadow-card: 0 18px 40px -10px rgba(0, 0, 0, 0.75);
+  --max-width: 1220px;
+  --transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  --shadow-card: 0 20px 45px -15px rgba(0, 0, 0, 0.85);
+  --shadow-gold: 0 0 50px -10px var(--brand-gold-glow);
 }
 
 *, *::before, *::after {
@@ -51,334 +56,779 @@ html {
 }
 
 body {
-  background-color: var(--bg-dark);
+  background-color: var(--bg-obsidian);
   color: var(--text-light);
   font-family: var(--font-body);
-  line-height: 1.6;
+  line-height: 1.65;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
 }
 
-/* Ambient Glow Background */
-.hub-glow-bg {
+/* Ambient Ambient Lighting Layers */
+.ambient-glow-gold {
   position: absolute;
-  top: 0;
+  top: -120px;
   left: 50%;
   transform: translateX(-50%);
-  width: 900px;
-  height: 600px;
-  background: radial-gradient(circle, rgba(255, 122, 0, 0.12) 0%, rgba(0, 136, 255, 0.05) 50%, transparent 75%);
+  width: 950px;
+  height: 650px;
+  background: radial-gradient(ellipse at center, rgba(245, 158, 11, 0.14) 0%, rgba(0, 136, 255, 0.05) 50%, transparent 80%);
   filter: blur(100px);
   pointer-events: none;
   z-index: 0;
 }
 
-.hub-wrapper {
-  max-width: var(--max-w-hub);
+.ambient-glow-blue {
+  position: absolute;
+  top: 35%;
+  right: -100px;
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, rgba(0, 136, 255, 0.1) 0%, transparent 70%);
+  filter: blur(120px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.container {
+  max-width: var(--max-width);
   margin: 0 auto;
-  padding: 3rem 1.25rem 5rem;
+  padding: 0 1.5rem;
   position: relative;
   z-index: 1;
 }
 
-/* --- TOP PROFILE HEADER (ESTILO CAIRO TRADER) --- */
-.profile-header {
-  text-align: center;
-  margin-bottom: 3.5rem;
-  display: flex;
-  flex-direction: column;
+/* --- BADGES & BRAND UTILITIES --- */
+.brand-badge-gold {
+  display: inline-flex;
   align-items: center;
+  gap: 0.6rem;
+  padding: 0.5rem 1.25rem;
+  background: rgba(245, 158, 11, 0.08);
+  border: 1px solid var(--border-gold);
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--brand-gold-bright);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
-.profile-logo-wrap {
-  width: 110px;
-  height: 110px;
-  margin-bottom: 1.5rem;
-  position: relative;
-}
-
-.profile-logo-img {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 3px solid var(--brand-orange);
-  box-shadow: 0 0 30px var(--brand-orange-glow);
-}
-
-.profile-title-h1 {
-  font-family: var(--font-display);
-  font-size: 2.2rem;
-  font-weight: 900;
-  color: var(--text-white);
-  margin-bottom: 0.5rem;
-  letter-spacing: -0.5px;
-}
-
-.profile-subtitle {
-  font-size: 1.05rem;
-  color: var(--text-muted);
-  max-width: 640px;
-  line-height: 1.65;
-  margin-bottom: 1.5rem;
-}
-
-.profile-triad-tags {
-  display: flex;
+.triad-sub-bar {
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
   gap: 0.75rem;
   font-family: var(--font-display);
   font-size: 0.85rem;
-  font-weight: 700;
-  letter-spacing: 2px;
+  font-weight: 800;
+  letter-spacing: 3px;
   text-transform: uppercase;
-  color: var(--brand-orange-bright);
+  color: var(--text-muted);
 }
 
 .dot-orange {
-  width: 6px;
-  height: 6px;
+  width: 7px;
+  height: 7px;
   background-color: var(--brand-orange);
   border-radius: 50%;
   display: inline-block;
+  box-shadow: 0 0 10px var(--brand-orange-glow);
 }
 
 .dot-blue {
-  width: 6px;
-  height: 6px;
+  width: 7px;
+  height: 7px;
   background-color: var(--brand-blue);
   border-radius: 50%;
   display: inline-block;
+  box-shadow: 0 0 10px var(--brand-blue-glow);
 }
 
-/* --- STACKED ACTION CARDS (O CORAÇÃO DO CAIRO TRADER) --- */
-.action-cards-stack {
+/* Pulse Dot */
+.pulse-green {
+  width: 9px;
+  height: 9px;
+  background-color: #25d366;
+  border-radius: 50%;
+  box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+  animation: pulseGreen 1.8s infinite;
+}
+
+@keyframes pulseGreen {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(37, 211, 102, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+/* --- BUTTONS SYSTEM --- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1.15rem 2.5rem;
+  border-radius: 14px;
+  font-family: var(--font-body);
+  font-weight: 800;
+  font-size: 1.05rem;
+  text-decoration: none;
+  transition: var(--transition);
+  cursor: pointer;
+  border: none;
+  text-align: center;
+}
+
+.btn-gold-action {
+  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 50%, #d97706 100%);
+  color: #050609;
+  box-shadow: 0 8px 30px var(--brand-gold-glow);
+}
+
+.btn-gold-action:hover {
+  transform: translateY(-3px) scale(1.01);
+  box-shadow: 0 14px 45px rgba(245, 158, 11, 0.5);
+}
+
+.btn-whatsapp-action {
+  background: linear-gradient(135deg, #25d366 0%, #16a34a 100%);
+  color: #ffffff;
+  box-shadow: 0 8px 30px var(--emerald-glow);
+}
+
+.btn-whatsapp-action:hover {
+  transform: translateY(-3px) scale(1.01);
+  box-shadow: 0 14px 45px rgba(37, 211, 102, 0.5);
+}
+
+.btn-glass-action {
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text-white);
+  border: 1px solid var(--border-light);
+  backdrop-filter: blur(10px);
+}
+
+.btn-glass-action:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.btn-full {
+  width: 100%;
+}
+
+/* --- HEADER NAVBAR --- */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: var(--bg-glass);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border-light);
+  transition: var(--transition);
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 85px;
+}
+
+.logo-brand-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  text-decoration: none;
+}
+
+.logo-brand-text {
   display: flex;
   flex-direction: column;
+}
+
+.brand-main-title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--text-white);
+  line-height: 1;
+}
+
+.brand-sub-title {
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: var(--brand-gold-bright);
+}
+
+.nav-links-row {
+  display: flex;
+  align-items: center;
   gap: 2rem;
-  margin-bottom: 4rem;
+  list-style: none;
 }
 
-.cairo-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border-light);
-  border-radius: 24px;
-  overflow: hidden;
+.nav-item-link {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 600;
   transition: var(--transition);
-  box-shadow: var(--shadow-card);
 }
 
-.cairo-card:hover {
-  transform: translateY(-5px);
-  border-color: var(--border-orange);
-  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.8), 0 0 35px var(--brand-orange-glow);
+.nav-item-link:hover {
+  color: var(--brand-gold-bright);
 }
 
-.cairo-card-featured {
-  border-color: var(--border-orange);
-  background: linear-gradient(135deg, var(--bg-card) 0%, rgba(255, 122, 0, 0.08) 100%);
+/* --- HERO SECTION (STYLE LUCAS TYLTY / COURSE HUB) --- */
+.hero-section {
+  padding: 160px 0 90px;
+  position: relative;
 }
 
-.cairo-card-banner {
+.hero-card-master {
+  background: var(--bg-card);
+  border: 1px solid var(--border-gold);
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: var(--shadow-card), var(--shadow-gold);
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.hero-media-cover {
+  position: relative;
   width: 100%;
-  height: 230px;
+  overflow: hidden;
+}
+
+.hero-cover-img {
+  width: 100%;
+  height: auto;
+  max-height: 520px;
   object-fit: cover;
   display: block;
 }
 
-.cairo-card-body {
-  padding: 2rem;
+.hero-body-padding {
+  padding: 3rem;
 }
 
-.cairo-card-badge {
+.hero-h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.3rem, 4.2vw, 3.6rem);
+  font-weight: 900;
+  line-height: 1.15;
+  margin: 1.25rem 0;
+  letter-spacing: -1.5px;
+}
+
+.hero-quote-highlight {
+  background: rgba(245, 158, 11, 0.06);
+  border-left: 4px solid var(--brand-gold);
+  padding: 1.25rem 1.5rem;
+  border-radius: 0 14px 14px 0;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--brand-gold-bright);
+  margin-bottom: 1.8rem;
+  line-height: 1.5;
+}
+
+.hero-p {
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin-bottom: 2.5rem;
+  max-width: 780px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  margin-bottom: 3rem;
+}
+
+.hero-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-light);
+}
+
+.stat-val {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--brand-gold-bright);
+  line-height: 1;
+}
+
+.stat-lbl {
+  font-size: 0.825rem;
+  color: var(--text-dim);
+  font-weight: 600;
+  margin-top: 0.3rem;
+}
+
+/* --- TICKER MARQUEE --- */
+.ticker-strip {
+  background: var(--bg-elevated);
+  border-top: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--border-light);
+  padding: 1.25rem 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.ticker-track {
+  display: inline-flex;
+  gap: 3.5rem;
+  animation: tickerLoop 35s linear infinite;
+}
+
+.ticker-item {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  letter-spacing: 1.5px;
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
-  font-size: 0.775rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  color: var(--brand-orange-bright);
-  margin-bottom: 0.6rem;
+  gap: 0.75rem;
 }
 
-.cairo-card-title {
-  font-family: var(--font-display);
-  font-size: 1.45rem;
-  font-weight: 800;
-  color: var(--text-white);
-  margin-bottom: 0.75rem;
-  line-height: 1.3;
+@keyframes tickerLoop {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
-.cairo-card-text {
-  font-size: 0.975rem;
-  color: var(--text-muted);
-  line-height: 1.65;
-  margin-bottom: 1.8rem;
+/* --- SECTION GENERAL --- */
+.section {
+  padding: 105px 0;
+  position: relative;
 }
 
-/* BUTTONS ESTILO CAIRO TRADER */
-.btn-cairo-action {
-  width: 100%;
-  padding: 1.15rem 2rem;
-  border-radius: 14px;
-  font-family: var(--font-body);
-  font-weight: 800;
-  font-size: 1.05rem;
+.section-head {
   text-align: center;
+  max-width: 780px;
+  margin: 0 auto 4rem;
+}
+
+.section-h2 {
+  font-family: var(--font-display);
+  font-size: clamp(2.1rem, 3.8vw, 3rem);
+  font-weight: 900;
+  line-height: 1.2;
+  margin: 1rem 0;
+  letter-spacing: -1px;
+}
+
+.section-p {
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+/* --- INTERACTIVE MODULE PLAYER / TRILHA DE AULAS (LUCAS TYLTY STYLE) --- */
+.course-trilha-box {
+  background: var(--bg-card);
+  border: 1px solid var(--border-gold);
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: var(--shadow-card), var(--shadow-gold);
+}
+
+.course-tabs-nav {
+  display: flex;
+  background: var(--bg-elevated);
+  border-bottom: 1px solid var(--border-light);
+  overflow-x: auto;
+}
+
+.course-tab-btn {
+  flex: 1;
+  min-width: 180px;
+  padding: 1.3rem 1.5rem;
+  background: none;
   border: none;
+  border-bottom: 3px solid transparent;
+  color: var(--text-muted);
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 800;
   cursor: pointer;
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
   gap: 0.75rem;
   transition: var(--transition);
-  text-decoration: none;
 }
 
-.btn-orange-glow {
-  background: linear-gradient(135deg, #ff9100 0%, #ff7a00 50%, #d96800 100%);
-  color: #000000;
-  box-shadow: 0 6px 25px var(--brand-orange-glow);
+.course-tab-btn:hover {
+  color: var(--text-white);
+  background: rgba(255, 255, 255, 0.03);
 }
 
-.btn-orange-glow:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 35px rgba(255, 122, 0, 0.5);
+.course-tab-btn.active {
+  color: var(--brand-gold-bright);
+  border-bottom-color: var(--brand-gold);
+  background: rgba(245, 158, 11, 0.08);
 }
 
-.btn-whatsapp-glow {
-  background: linear-gradient(135deg, #25d366 0%, #16a34a 100%);
-  color: #ffffff;
-  box-shadow: 0 6px 25px var(--green-glow);
+.course-screen-panel {
+  padding: 3rem;
+  display: none;
 }
 
-.btn-whatsapp-glow:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 35px rgba(37, 211, 102, 0.5);
+.course-screen-panel.active {
+  display: block;
+  animation: fadeIn 0.4s ease;
 }
 
-.btn-youtube-glow {
-  background: linear-gradient(135deg, #ff0000 0%, #cc0000 100%);
-  color: #ffffff;
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-.btn-instagram-glow {
-  background: linear-gradient(135deg, #833ab4 0%, #fd1d1d 50%, #fcb045 100%);
-  color: #ffffff;
+.course-screen-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 3rem;
+  align-items: center;
 }
 
-/* --- CARD DE BIOGRAFIA (QUEM É O CÉSAR) --- */
-.bio-card-box {
-  background: var(--bg-card);
+.module-thumb-box {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
   border: 1px solid var(--border-light);
-  border-radius: 24px;
-  padding: 2.5rem;
-  margin-bottom: 3.5rem;
   box-shadow: var(--shadow-card);
 }
 
-.bio-card-title {
-  font-family: var(--font-display);
-  font-size: 1.8rem;
-  font-weight: 900;
-  margin-bottom: 1.25rem;
-  color: var(--text-white);
-  letter-spacing: -0.5px;
+.module-thumb-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
 }
 
-.bio-quote-box {
-  background: rgba(255, 122, 0, 0.06);
-  border-left: 4px solid var(--brand-orange);
-  padding: 1.25rem 1.5rem;
-  border-radius: 0 12px 12px 0;
-  font-family: var(--font-display);
-  font-size: 1.15rem;
-  font-weight: 700;
-  color: var(--brand-orange-bright);
-  margin-bottom: 1.5rem;
-  line-height: 1.5;
-}
-
-.bio-p {
-  color: var(--text-muted);
-  font-size: 1rem;
-  line-height: 1.7;
-  margin-bottom: 1.2rem;
-}
-
-/* --- FRAMEWORK 369 STEPPER VERTICAL --- */
-.framework-vertical-list {
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-  margin-top: 1.5rem;
-}
-
-.framework-vertical-item {
-  background: var(--bg-surface);
-  border: 1px solid var(--border-light);
-  border-radius: 16px;
-  padding: 1.25rem 1.5rem;
-  display: flex;
-  align-items: flex-start;
-  gap: 1.25rem;
-}
-
-.framework-badge-letter {
-  width: 46px;
-  height: 46px;
-  background: var(--brand-orange);
-  color: #000000;
-  border-radius: 12px;
-  font-family: var(--font-display);
-  font-weight: 900;
-  font-size: 1.5rem;
+.play-badge-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70px;
+  height: 70px;
+  background: rgba(245, 158, 11, 0.9);
+  color: #000;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-shrink: 0;
+  font-size: 1.6rem;
+  box-shadow: 0 0 30px var(--brand-gold-glow);
+  cursor: pointer;
 }
 
-.framework-step-title {
+.module-title-h3 {
   font-family: var(--font-display);
-  font-size: 1.15rem;
+  font-size: 1.8rem;
   font-weight: 800;
   color: var(--text-white);
-  margin-bottom: 0.25rem;
+  margin-bottom: 1rem;
 }
 
-.framework-step-desc {
-  font-size: 0.925rem;
+.module-goals-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  margin: 1.5rem 0 2rem;
+}
+
+.module-goal-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 1rem;
+  color: var(--text-muted);
+}
+
+.module-goal-item i {
+  color: var(--brand-gold-bright);
+  margin-top: 0.2rem;
+}
+
+/* --- SIMULADOR INTERATIVO DE GESTÃO DE RISCO (SIMULADOR 369) --- */
+.simulador-card-box {
+  background: var(--bg-card);
+  border: 1px solid var(--border-gold);
+  border-radius: 28px;
+  padding: 3.5rem 3rem;
+  box-shadow: var(--shadow-card), var(--shadow-gold);
+}
+
+.simulador-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+.sim-input-group {
+  margin-bottom: 2rem;
+}
+
+.sim-label {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.05rem;
+  margin-bottom: 0.75rem;
+  color: var(--text-white);
+}
+
+.sim-range-slider {
+  width: 100%;
+  height: 8px;
+  border-radius: 4px;
+  background: var(--bg-elevated);
+  outline: none;
+  accent-color: var(--brand-gold-bright);
+  cursor: pointer;
+}
+
+.sim-output-box {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-light);
+  border-radius: 20px;
+  padding: 2.5rem;
+  text-align: center;
+}
+
+.sim-result-val {
+  font-family: var(--font-display);
+  font-size: 3.2rem;
+  font-weight: 900;
+  color: var(--brand-gold-bright);
+  line-height: 1.1;
+  margin: 1rem 0;
+}
+
+/* --- COMPARATIVO (MÉTODO 369 VS TRADING TRADICIONAL) --- */
+.comparison-table-box {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+}
+
+.comparison-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.comp-col-bad {
+  background: rgba(239, 68, 68, 0.04);
+  padding: 3rem 2.5rem;
+  border-right: 1px solid var(--border-light);
+}
+
+.comp-col-good {
+  background: rgba(16, 185, 129, 0.04);
+  padding: 3rem 2.5rem;
+}
+
+.comp-head {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 800;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.comp-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.comp-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.9rem;
+  font-size: 1rem;
   color: var(--text-muted);
   line-height: 1.55;
 }
 
+/* --- ORBITAL ICON CARDS (DA IDENTIDADE VISUAL OFICIAL) --- */
+.orbital-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.orbital-card-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: 24px;
+  padding: 2.5rem 2rem;
+  text-align: center;
+  transition: var(--transition);
+}
+
+.orbital-card-item:hover {
+  transform: translateY(-6px);
+  border-color: var(--border-gold);
+  box-shadow: var(--shadow-gold);
+}
+
+.orbital-img-frame {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 1.5rem;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid var(--border-gold);
+  box-shadow: 0 0 25px var(--brand-gold-glow);
+}
+
+.orbital-img-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.orbital-h3 {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 800;
+  margin-bottom: 0.6rem;
+}
+
+.orbital-p {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* --- HISTÓRIA DO CÉSAR (MENTOR SECTION) --- */
+.mentor-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.mentor-card-box {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: 24px;
+  padding: 2.5rem;
+}
+
+.mentor-quote-p {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--brand-gold-bright);
+  line-height: 1.55;
+  margin-bottom: 1.5rem;
+  padding-left: 1.25rem;
+  border-left: 4px solid var(--brand-gold);
+}
+
+.mentor-bio-text {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  line-height: 1.75;
+  margin-bottom: 1.25rem;
+}
+
+/* --- DIFERENCIAIS (6 PILARES DO BRIEFING) --- */
+.diff-grid-3col {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
+}
+
+.diff-card-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: 20px;
+  padding: 2.2rem;
+  transition: var(--transition);
+}
+
+.diff-card-item:hover {
+  transform: translateY(-5px);
+  border-color: var(--border-gold);
+}
+
+.diff-icon-holder {
+  width: 54px;
+  height: 54px;
+  background: rgba(245, 158, 11, 0.1);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  color: var(--brand-gold-bright);
+  margin-bottom: 1.5rem;
+}
+
+.diff-card-h3 {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 800;
+  margin-bottom: 0.75rem;
+}
+
+.diff-card-p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
 /* --- FAQ ACCORDION --- */
-.faq-accordion-box {
+.faq-accordion-wrap {
+  max-width: 860px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  margin-top: 1.5rem;
+  gap: 1.25rem;
 }
 
-.faq-cairo-item {
-  background: var(--bg-surface);
+.faq-item-card {
+  background: var(--bg-card);
   border: 1px solid var(--border-light);
-  border-radius: 14px;
+  border-radius: 18px;
   overflow: hidden;
+  transition: var(--transition);
 }
 
-.faq-cairo-q {
+.faq-question-btn {
   width: 100%;
-  padding: 1.25rem 1.5rem;
+  padding: 1.5rem 2rem;
   background: none;
   border: none;
   color: var(--text-white);
   font-family: var(--font-body);
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-weight: 700;
   text-align: left;
   display: flex;
@@ -387,74 +837,162 @@ body {
   cursor: pointer;
 }
 
-.faq-cairo-q i {
-  color: var(--brand-orange);
+.faq-question-btn i {
+  color: var(--brand-gold);
   transition: var(--transition);
 }
 
-.faq-cairo-a {
+.faq-answer-panel {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.35s cubic-bezier(0, 1, 0, 1);
-  padding: 0 1.5rem;
+  padding: 0 2rem;
 }
 
-.faq-cairo-a p {
-  padding-bottom: 1.25rem;
+.faq-answer-panel p {
+  padding-bottom: 1.5rem;
   color: var(--text-muted);
-  font-size: 0.95rem;
-  line-height: 1.65;
+  font-size: 1rem;
+  line-height: 1.7;
 }
 
-.faq-cairo-item.active {
-  border-color: var(--border-orange);
+.faq-item-card.active {
+  border-color: var(--border-gold);
 }
 
-.faq-cairo-item.active .faq-cairo-q i {
+.faq-item-card.active .faq-question-btn i {
   transform: rotate(180deg);
 }
 
-.faq-cairo-item.active .faq-cairo-a {
-  max-height: 300px;
+.faq-item-card.active .faq-answer-panel {
+  max-height: 500px;
+}
+
+/* --- BANNER DE CONTATO FINAL --- */
+.contact-final-banner {
+  background: linear-gradient(135deg, var(--bg-card) 0%, rgba(245, 158, 11, 0.08) 100%);
+  border: 1px solid var(--border-gold);
+  border-radius: 28px;
+  padding: 4.5rem 3rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-gold);
+}
+
+.contact-final-h2 {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  font-weight: 900;
+  margin-bottom: 1.25rem;
+  line-height: 1.2;
+}
+
+.contact-pills-flex {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 2.5rem 0;
+  flex-wrap: wrap;
+}
+
+.contact-pill-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-light);
+  padding: 0.9rem 1.6rem;
+  border-radius: 14px;
+  color: var(--text-white);
+  text-decoration: none;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.contact-pill-link:hover {
+  border-color: var(--brand-gold);
+  background: rgba(245, 158, 11, 0.1);
 }
 
 /* --- FOOTER COMPLIANCE --- */
 footer {
+  background: #030407;
   border-top: 1px solid var(--border-light);
-  padding-top: 2.5rem;
-  text-align: center;
+  padding: 70px 0 35px;
 }
 
-.legal-disclaimer-hub {
-  background: rgba(255, 122, 0, 0.04);
-  border: 1px solid var(--border-orange);
+.legal-disclaimer-card {
+  background: rgba(245, 158, 11, 0.04);
+  border: 1px solid var(--border-gold);
   border-radius: 16px;
-  padding: 1.5rem;
-  margin-bottom: 2rem;
+  padding: 1.8rem 2.2rem;
+  margin-bottom: 3.5rem;
   text-align: center;
 }
 
-.legal-disclaimer-hub p {
-  font-size: 0.85rem;
+.legal-disclaimer-title {
+  color: var(--brand-gold-bright);
+  font-weight: 700;
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.legal-disclaimer-p {
+  font-size: 0.875rem;
   color: var(--text-muted);
-  line-height: 1.6;
+  line-height: 1.65;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.footer-bottom-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  font-size: 0.875rem;
+  color: var(--text-dim);
 }
 
 /* RESPONSIVE */
-@media (max-width: 640px) {
-  .hub-wrapper {
-    padding: 2rem 1rem 4rem;
+@media (max-width: 1024px) {
+  .hero-card-master, .mentor-grid, .course-screen-grid, .simulador-grid, .comparison-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
   }
 
-  .profile-title-h1 {
-    font-size: 1.8rem;
+  .comp-col-bad {
+    border-right: none;
+    border-bottom: 1px solid var(--border-light);
   }
 
-  .cairo-card-banner {
-    height: 180px;
+  .diff-grid-3col, .orbital-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 
-  .cairo-card-body, .bio-card-box {
-    padding: 1.5rem 1.25rem;
+  .hero-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 680px) {
+  .diff-grid-3col, .orbital-cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-h1 {
+    font-size: 2.1rem;
+  }
+
+  .hero-body-padding, .simulador-card-box, .course-screen-panel {
+    padding: 1.75rem 1.25rem;
+  }
+
+  .nav-links-row {
+    display: none;
   }
 }
