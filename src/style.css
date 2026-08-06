@@ -1,6 +1,6 @@
 /* ==========================================================================
-   MÉTODO TRADER 369 — MASTERPIECE UX & DESIGN SYSTEM (v13.0)
-   Opção 1 (Hero Masterclass) + Opção B (Cards 3D) + Opção Z (Linha do Tempo 369)
+   MÉTODO TRADER 369 — MASTERPIECE UX & DESIGN SYSTEM (v14.0)
+   Trilha em Lista Vertical Elegante (Sem distorção de imagens) + Sem Nome César
    ========================================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800;900&family=Space+Grotesk:wght@600;700;800&display=swap');
@@ -437,112 +437,166 @@ nav {
   line-height: 1.7;
 }
 
-/* --- SEÇÃO 2 CARDS 3D GRID --- */
-.cards-3d-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
+/* --- LISTA DE PROGRAMAS & MÓDULOS (NOVO SISTEMA EM LISTA VERTICAL INTUITIVA) --- */
+.program-list-vertical {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
-.card-3d-item {
+.program-list-item {
   background: var(--bg-card);
   border: 1px solid var(--border-light);
   border-radius: 24px;
-  overflow: hidden;
+  padding: 2.2rem;
+  display: grid;
+  grid-template-columns: 80px 1fr auto;
+  gap: 2rem;
+  align-items: center;
   transition: var(--transition);
   box-shadow: var(--shadow-card);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
 }
 
-.card-3d-item:hover {
-  transform: translateY(-8px) scale(1.01);
+.program-list-item:hover {
+  transform: translateX(8px);
   border-color: var(--border-gold);
-  box-shadow: var(--shadow-card), var(--shadow-gold);
+  box-shadow: var(--shadow-gold);
 }
 
-.card-3d-featured {
-  grid-column: span 3;
+.program-list-featured {
   border-color: var(--border-gold);
   background: linear-gradient(135deg, var(--bg-card) 0%, rgba(245, 158, 11, 0.08) 100%);
-  display: grid;
-  grid-template-columns: 1fr 1.2fr;
+}
+
+.program-item-icon-box {
+  display: flex;
   align-items: center;
+  justify-content: center;
 }
 
-.card-3d-cover-wrap {
-  position: relative;
-  width: 100%;
-  height: 220px;
-  overflow: hidden;
+.program-icon-circle {
+  width: 70px;
+  height: 70px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  flex-shrink: 0;
 }
 
-.card-3d-featured .card-3d-cover-wrap {
-  height: 100%;
-  min-height: 340px;
+.gold-circle {
+  background: rgba(245, 158, 11, 0.12);
+  color: var(--brand-gold-bright);
+  border: 1px solid var(--border-gold);
 }
 
-.card-3d-cover-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
+.blue-circle {
+  background: rgba(0, 136, 255, 0.12);
+  color: var(--brand-blue);
+  border: 1px solid var(--border-blue);
 }
 
-.card-3d-badge-tag {
-  position: absolute;
-  top: 16px;
-  left: 16px;
-  background: rgba(10, 13, 22, 0.88);
-  backdrop-filter: blur(10px);
-  padding: 0.4rem 0.9rem;
-  border-radius: 999px;
+.green-circle {
+  background: rgba(37, 211, 102, 0.12);
+  color: #25d366;
+  border: 1px solid rgba(37, 211, 102, 0.35);
+}
+
+.red-circle {
+  background: rgba(255, 0, 0, 0.12);
+  color: #ff4e4e;
+  border: 1px solid rgba(255, 0, 0, 0.3);
+}
+
+.insta-circle {
+  background: linear-gradient(135deg, rgba(131, 58, 180, 0.2), rgba(253, 29, 29, 0.2));
+  color: #fd1d1d;
+  border: 1px solid rgba(253, 29, 29, 0.35);
+}
+
+.program-tag-row {
+  margin-bottom: 0.6rem;
+}
+
+.badge-tag-gold {
   font-size: 0.75rem;
   font-weight: 800;
   color: var(--brand-gold-bright);
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  border: 1px solid var(--border-light);
 }
 
-.card-3d-body {
-  padding: 2.2rem;
+.badge-tag-blue {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--brand-blue);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
-.card-3d-title {
+.badge-tag-green {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #25d366;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.badge-tag-red {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #ff4e4e;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.badge-tag-insta {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #fd1d1d;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.program-title-h3 {
   font-family: var(--font-display);
-  font-size: 1.4rem;
+  font-size: 1.45rem;
   font-weight: 800;
   color: var(--text-white);
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.5rem;
   line-height: 1.3;
 }
 
-.card-3d-desc {
-  font-size: 0.95rem;
+.program-desc-p {
+  font-size: 0.975rem;
   color: var(--text-muted);
   line-height: 1.6;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
-.card-3d-bullets {
-  list-style: none;
+.program-features-flex {
   display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
-  margin-bottom: 1.8rem;
-}
-
-.card-3d-bullets li {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  font-size: 0.9rem;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  font-size: 0.875rem;
   color: var(--text-light);
 }
 
-/* --- SEÇÃO 3 OPÇÃO Z: LINHA DO TEMPO DOS 6 PASSOS (FRAMEWORK 369) --- */
+.program-features-flex span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.program-item-cta {
+  display: flex;
+  align-items: center;
+}
+
+/* --- LINHA DO TEMPO DOS 6 PASSOS --- */
 .timeline-vertical-wrap {
   max-width: 920px;
   margin: 0 auto;
@@ -714,7 +768,7 @@ nav {
   line-height: 1.6;
 }
 
-/* --- HISTÓRIA DO CÉSAR (MENTOR SECTION) --- */
+/* --- HISTÓRIA DO MÉTODO (MENTOR SECTION) --- */
 .mentor-grid {
   display: grid;
   grid-template-columns: 0.9fr 1.1fr;
@@ -903,16 +957,21 @@ footer {
 
 /* RESPONSIVE */
 @media (max-width: 1024px) {
-  .hero-grid-2col, .mentor-grid, .comparison-grid, .card-3d-featured {
+  .hero-grid-2col, .mentor-grid, .comparison-grid {
     grid-template-columns: 1fr;
     gap: 2.5rem;
   }
 
-  .card-3d-featured {
-    grid-column: span 1;
+  .program-list-item {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 
-  .cards-3d-grid, .orbital-cards-grid {
+  .program-item-icon-box {
+    justify-content: flex-start;
+  }
+
+  .orbital-cards-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
@@ -926,7 +985,7 @@ footer {
 }
 
 @media (max-width: 680px) {
-  .cards-3d-grid, .orbital-cards-grid {
+  .orbital-cards-grid {
     grid-template-columns: 1fr;
   }
 
