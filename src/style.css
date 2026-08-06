@@ -1,6 +1,6 @@
 /* ==========================================================================
-   MÉTODO TRADER 369 — MASTERPIECE UX & DESIGN SYSTEM (v16.0)
-   Hero Widescreen Luxury Card + Trilha Didática em Lista + Sem Nome César
+   MÉTODO TRADER 369 — MASTERPIECE UX & DESIGN SYSTEM (v17.0)
+   Preloader Imersivo + Badges Fintech Luxo (Sem cara de IA) + Botão Flutuante
    ========================================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800;900&family=Space+Grotesk:wght@600;700;800&display=swap');
@@ -62,7 +62,106 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Ambient Ambient Lighting Layers */
+/* --- 0. TELA DE CARREGAMENTO IMERSIVA (PRELOADER) --- */
+.preloader-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #030407;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.6s;
+}
+
+.preloader-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.preloader-content {
+  text-align: center;
+  max-width: 480px;
+  width: 90%;
+  padding: 2.5rem;
+  background: rgba(10, 13, 22, 0.95);
+  border: 1px solid var(--border-gold);
+  border-radius: 28px;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.95), 0 0 50px var(--brand-gold-glow);
+}
+
+.preloader-logo-pulse {
+  margin: 0 auto 1.5rem;
+  animation: preloaderPulse 1.8s infinite cubic-bezier(0.4, 0, 0.6, 1);
+}
+
+@keyframes preloaderPulse {
+  0%, 100% { transform: scale(1); filter: drop-shadow(0 0 10px rgba(245,158,11,0.4)); }
+  50% { transform: scale(1.08); filter: drop-shadow(0 0 25px rgba(245,158,11,0.8)); }
+}
+
+.preloader-brand-title {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 1.25rem;
+  color: var(--text-white);
+  letter-spacing: 2px;
+  margin-bottom: 1.25rem;
+}
+
+.preloader-status-text {
+  font-family: 'Space Grotesk', monospace;
+  font-size: 0.825rem;
+  color: var(--brand-gold-bright);
+  letter-spacing: 1px;
+  margin-bottom: 1.5rem;
+  min-height: 24px;
+}
+
+.preloader-bar-wrap {
+  width: 100%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  overflow: hidden;
+  margin-bottom: 0.75rem;
+  position: relative;
+}
+
+.preloader-bar-fill {
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, #f59e0b 0%, #fbbf24 50%, #25d366 100%);
+  border-radius: 999px;
+  transition: width 0.15s ease-out;
+}
+
+.preloader-perc-text {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-weight: 700;
+}
+
+/* --- BACKGROUND GRAPHICAL MESH --- */
+.bg-grid-mesh {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+  z-index: 0;
+}
+
 .ambient-glow-gold {
   position: absolute;
   top: -120px;
@@ -96,39 +195,33 @@ body {
   z-index: 1;
 }
 
-/* --- BADGES & BRAND UTILITIES --- */
-.brand-badge-gold {
+/* --- NOVO BADGE DE MASTERCLASS REFINADO (DESIGN FINTECH FINO, SEM CARA DE IA) --- */
+.masterclass-badge-v2 {
   display: inline-flex;
   align-items: center;
-  gap: 0.6rem;
-  padding: 0.5rem 1.25rem;
-  background: rgba(245, 158, 11, 0.08);
-  border: 1px solid var(--border-gold);
-  border-radius: 999px;
-  font-size: 0.85rem;
-  font-weight: 700;
+  gap: 0.65rem;
+  padding: 0.45rem 1.1rem;
+  background: rgba(245, 158, 11, 0.05);
+  border: 1px solid rgba(245, 158, 11, 0.25);
+  border-radius: 8px;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 800;
   color: var(--brand-gold-bright);
+  letter-spacing: 1.2px;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
 }
 
-/* Pulse Dot */
-.pulse-green {
-  width: 9px;
-  height: 9px;
-  background-color: #25d366;
+.badge-dot-gold {
+  width: 7px;
+  height: 7px;
+  background-color: var(--brand-gold-bright);
   border-radius: 50%;
-  box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
-  animation: pulseGreen 1.8s infinite;
+  box-shadow: 0 0 10px var(--brand-gold-bright);
 }
 
-@keyframes pulseGreen {
-  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
-  70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(37, 211, 102, 0); }
-  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
-}
-
-/* --- BUTTONS SYSTEM --- */
+/* --- BUTTONS SYSTEM COM EFETOS DE SHINE E ANIMAÇÃO --- */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -144,6 +237,25 @@ body {
   cursor: pointer;
   border: none;
   text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Efeito de brilho sweep em todos os botões no hover */
+.btn::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(60deg, transparent, rgba(255,255,255,0.25), transparent);
+  transform: rotate(30deg) translateY(-100%);
+  transition: transform 0.65s ease;
+}
+
+.btn:hover::after {
+  transform: rotate(30deg) translateY(100%);
 }
 
 .btn-gold-action {
@@ -168,6 +280,26 @@ body {
   box-shadow: 0 14px 45px rgba(37, 211, 102, 0.5);
 }
 
+.btn-nav-whatsapp {
+  background: rgba(37, 211, 102, 0.12);
+  color: #25d366;
+  border: 1px solid rgba(37, 211, 102, 0.4);
+  padding: 0.75rem 1.4rem;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.btn-nav-whatsapp:hover {
+  background: linear-gradient(135deg, #25d366 0%, #16a34a 100%);
+  color: #ffffff;
+  border-color: #25d366;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+}
+
 .btn-glass-action {
   background: rgba(255, 255, 255, 0.04);
   color: var(--text-white);
@@ -183,6 +315,78 @@ body {
 
 .btn-full {
   width: 100%;
+}
+
+/* --- BOTÃO FLUTUANTE DE WHATSAPP --- */
+.floating-whatsapp-widget {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.floating-whatsapp-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  box-shadow: 0 10px 30px rgba(37, 211, 102, 0.45);
+  position: relative;
+  z-index: 2;
+  transition: var(--transition);
+}
+
+.floating-whatsapp-pulse {
+  position: absolute;
+  right: 0;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: rgba(37, 211, 102, 0.5);
+  animation: floatPulse 2s infinite;
+  z-index: 1;
+}
+
+@keyframes floatPulse {
+  0% { transform: scale(0.95); opacity: 0.8; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+
+.floating-whatsapp-tooltip {
+  background: rgba(10, 13, 22, 0.92);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border-gold);
+  color: var(--text-white);
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateX(10px);
+  transition: var(--transition);
+  pointer-events: none;
+}
+
+.floating-whatsapp-widget:hover .floating-whatsapp-tooltip {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.floating-whatsapp-widget:hover .floating-whatsapp-icon {
+  transform: scale(1.1);
+  box-shadow: 0 15px 40px rgba(37, 211, 102, 0.65);
 }
 
 /* --- HEADER NAVBAR --- */
@@ -251,7 +455,7 @@ nav {
   color: var(--brand-gold-bright);
 }
 
-/* --- HERO SECTION (LAYOUT 2 COLUNAS DE ELITE) --- */
+/* --- HERO SECTION --- */
 .hero-section {
   padding: 150px 0 90px;
   position: relative;
@@ -308,6 +512,20 @@ nav {
   border-top: 1px solid var(--border-light);
 }
 
+.stat-card-item {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-light);
+  border-radius: 14px;
+  padding: 1rem 0.8rem;
+  text-align: center;
+  transition: var(--transition);
+}
+
+.stat-card-item:hover {
+  border-color: var(--border-gold);
+  background: rgba(245, 158, 11, 0.05);
+}
+
 .stat-val {
   font-family: var(--font-display);
   font-size: 1.85rem;
@@ -317,7 +535,7 @@ nav {
 }
 
 .stat-lbl {
-  font-size: 0.8rem;
+  font-size: 0.775rem;
   color: var(--text-dim);
   font-weight: 600;
   margin-top: 0.3rem;
@@ -669,6 +887,15 @@ nav {
   line-height: 1.65;
 }
 
+.authorship-disclaimer-box {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-light);
+  border-radius: 16px;
+  padding: 1.5rem 2rem;
+  margin-top: 3.5rem;
+  text-align: center;
+}
+
 /* --- COMPARATIVO --- */
 .comparison-table-box {
   background: var(--bg-card);
@@ -984,6 +1211,10 @@ footer {
 
   .hero-stats-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .floating-whatsapp-tooltip {
+    display: none;
   }
 }
 

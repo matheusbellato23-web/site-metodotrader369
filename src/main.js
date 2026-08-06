@@ -1,71 +1,60 @@
 /* ==========================================================================
-   MÉTODO TRADER 369 — RECURSOS DE UX INTERATIVA (STYLE LUCAS TYLTY v10.0)
+   MÉTODO TRADER 369 — PRELOADER IMERSIVO & RECURSOS INTERATIVOS (v17.0)
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  // 1. TRILHA INTERATIVA DE AULAS / PLAYER DE MÓDULOS
-  const tabBtns = document.querySelectorAll('.course-tab-btn');
-  const screenPanels = document.querySelectorAll('.course-screen-panel');
+  // 1. TELA DE CARREGAMENTO IMERSIVA (PRELOADER TERMINAL 369)
+  const preloader = document.getElementById('preloader');
+  const preloaderBar = document.getElementById('preloaderBar');
+  const preloaderStatus = document.getElementById('preloaderStatus');
+  const preloaderPerc = document.getElementById('preloaderPerc');
 
-  tabBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const targetId = btn.getAttribute('data-tab');
+  if (preloader && preloaderBar && preloaderStatus && preloaderPerc) {
+    const statusMessages = [
+      "INICIALIZANDO AMBIENTE INSTITUCIONAL...",
+      "CARREGANDO CONTEXTO ALGORÍTMICO (IPDA)...",
+      "MAPEANDO ZONAS DE LIQUIDEZ E CRT...",
+      "VALIDANDO CHECKLIST FRAMEWORK 369...",
+      "BEM-VINDO AO MÉTODO TRADER 369."
+    ];
 
-      // Remove active de todos os botões e painéis
-      tabBtns.forEach(b => b.classList.remove('active'));
-      screenPanels.forEach(p => p.classList.remove('active'));
+    let progress = 0;
+    let messageIndex = 0;
 
-      // Ativa o clicado
-      btn.classList.add('active');
-      const targetPanel = document.getElementById(targetId);
-      if (targetPanel) {
-        targetPanel.classList.add('active');
+    const interval = setInterval(() => {
+      progress += Math.floor(Math.random() * 12) + 8;
+      if (progress > 100) progress = 100;
+
+      preloaderBar.style.width = `${progress}%`;
+      preloaderPerc.textContent = `${progress}%`;
+
+      if (progress > 25 && messageIndex === 0) {
+        messageIndex = 1;
+        preloaderStatus.textContent = statusMessages[1];
+      } else if (progress > 55 && messageIndex === 1) {
+        messageIndex = 2;
+        preloaderStatus.textContent = statusMessages[2];
+      } else if (progress > 80 && messageIndex === 2) {
+        messageIndex = 3;
+        preloaderStatus.textContent = statusMessages[3];
+      } else if (progress >= 100) {
+        messageIndex = 4;
+        preloaderStatus.textContent = statusMessages[4];
+        clearInterval(interval);
+
+        // Suave desaparecimento do preloader
+        setTimeout(() => {
+          preloader.classList.add('preloader-hidden');
+          setTimeout(() => {
+            preloader.style.display = 'none';
+          }, 600);
+        }, 350);
       }
-    });
-  });
-
-  // 2. SIMULADOR INTERATIVO DE GESTÃO DE RISCO (SIMULADOR 369)
-  const rangeCapital = document.getElementById('rangeCapital');
-  const rangeRisco = document.getElementById('rangeRisco');
-  const rangeRR = document.getElementById('rangeRR');
-
-  const valCapital = document.getElementById('valCapital');
-  const valRisco = document.getElementById('valRisco');
-  const valRR = document.getElementById('valRR');
-  const resLucro = document.getElementById('resLucro');
-
-  function updateSimulador() {
-    if (!rangeCapital || !rangeRisco || !rangeRR) return;
-
-    const cap = parseFloat(rangeCapital.value);
-    const riscoPerc = parseFloat(rangeRisco.value) / 100;
-    const rrMulti = parseFloat(rangeRR.value);
-
-    // Atualiza labels exibidos
-    valCapital.textContent = `R$ ${cap.toLocaleString('pt-BR')}`;
-    valRisco.textContent = `${rangeRisco.value}%`;
-    valRR.textContent = `1 : ${rangeRR.value}`;
-
-    // Cálculo em 20 trades (ex: 10 vitórias e 10 derrotas = 50% taxa de acerto)
-    const riscoPorTrade = cap * riscoPerc;
-    const ganhoPorTrade = riscoPorTrade * rrMulti;
-
-    const totalGanhos = 10 * ganhoPorTrade;
-    const totalPerdas = 10 * riscoPorTrade;
-    const lucroLiquido = totalGanhos - totalPerdas;
-
-    resLucro.textContent = `R$ +${lucroLiquido.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+    }, 100);
   }
 
-  if (rangeCapital && rangeRisco && rangeRR) {
-    rangeCapital.addEventListener('input', updateSimulador);
-    rangeRisco.addEventListener('input', updateSimulador);
-    rangeRR.addEventListener('input', updateSimulador);
-    updateSimulador(); // Executa inicial
-  }
-
-  // 3. ACCORDION DO FAQ
+  // 2. ACCORDION DO FAQ
   const faqBtns = document.querySelectorAll('.faq-question-btn');
 
   faqBtns.forEach(btn => {
