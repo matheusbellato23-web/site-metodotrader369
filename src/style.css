@@ -1,6 +1,6 @@
 /* ==========================================================================
-   MÉTODO TRADER 369 — MASTERPIECE UX & DESIGN SYSTEM (v18.0)
-   Mobile First Responsiveness & Ultra-Fluid Mobile Layout
+   MÉTODO TRADER 369 — MASTERPIECE UX & DESIGN SYSTEM (v19.0)
+   Elementos Gráficos de Fundo + Imagem Única por Seção + WhatsApp Docked Clean
    ========================================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800;900&family=Space+Grotesk:wght@600;700;800&display=swap');
@@ -147,7 +147,7 @@ body {
   font-weight: 700;
 }
 
-/* --- BACKGROUND GRAPHICAL MESH --- */
+/* --- ELEMENTOS GRÁFICOS DE FUNDO & MALHA VETORIAL --- */
 .bg-grid-mesh {
   position: fixed;
   top: 0;
@@ -155,9 +155,33 @@ body {
   width: 100%;
   height: 100%;
   background-image: 
-    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-  background-size: 60px 60px;
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 55px 55px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.bg-candlestick-glow {
+  position: fixed;
+  bottom: -50px;
+  left: -50px;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.06) 0%, transparent 75%);
+  filter: blur(90px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.bg-geometric-nodes {
+  position: fixed;
+  top: 40%;
+  left: -100px;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(0, 136, 255, 0.05) 0%, transparent 70%);
+  filter: blur(100px);
   pointer-events: none;
   z-index: 0;
 }
@@ -316,12 +340,12 @@ body {
   width: 100%;
 }
 
-/* --- BOTÃO FLUTUANTE DE WHATSAPP --- */
+/* --- BOTÃO FLUTUANTE DE WHATSAPP (CORRIGIDO: 100% DOCKED SEM SOBREPOR CARDS NEM EXPANDIR CIRCULOS GRANDES) --- */
 .floating-whatsapp-widget {
   position: fixed;
-  bottom: 28px;
-  right: 28px;
-  z-index: 999;
+  bottom: 24px;
+  right: 24px;
+  z-index: 1000;
   display: flex;
   align-items: center;
   gap: 0.75rem;
@@ -330,47 +354,31 @@ body {
 }
 
 .floating-whatsapp-icon {
-  width: 60px;
-  height: 60px;
+  width: 54px;
+  height: 54px;
   border-radius: 50%;
   background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
   color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.8rem;
-  box-shadow: 0 10px 30px rgba(37, 211, 102, 0.45);
+  font-size: 1.65rem;
+  box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+  transition: var(--transition);
   position: relative;
   z-index: 2;
-  transition: var(--transition);
-}
-
-.floating-whatsapp-pulse {
-  position: absolute;
-  right: 0;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background: rgba(37, 211, 102, 0.5);
-  animation: floatPulse 2s infinite;
-  z-index: 1;
-}
-
-@keyframes floatPulse {
-  0% { transform: scale(0.95); opacity: 0.8; }
-  100% { transform: scale(1.6); opacity: 0; }
 }
 
 .floating-whatsapp-tooltip {
-  background: rgba(10, 13, 22, 0.92);
+  background: rgba(10, 13, 22, 0.95);
   backdrop-filter: blur(12px);
   border: 1px solid var(--border-gold);
   color: var(--text-white);
-  padding: 0.5rem 1rem;
-  border-radius: 12px;
-  font-size: 0.85rem;
+  padding: 0.45rem 0.9rem;
+  border-radius: 10px;
+  font-size: 0.8rem;
   font-weight: 700;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
   white-space: nowrap;
   opacity: 0;
   transform: translateX(10px);
@@ -384,8 +392,8 @@ body {
 }
 
 .floating-whatsapp-widget:hover .floating-whatsapp-icon {
-  transform: scale(1.1);
-  box-shadow: 0 15px 40px rgba(37, 211, 102, 0.65);
+  transform: scale(1.08);
+  box-shadow: 0 12px 35px rgba(37, 211, 102, 0.6);
 }
 
 /* --- HEADER NAVBAR --- */
@@ -1524,14 +1532,9 @@ footer {
   }
 
   .floating-whatsapp-icon {
-    width: 52px;
-    height: 52px;
-    font-size: 1.5rem;
-  }
-
-  .floating-whatsapp-pulse {
-    width: 52px;
-    height: 52px;
+    width: 48px;
+    height: 48px;
+    font-size: 1.4rem;
   }
 }
 
