@@ -1,6 +1,6 @@
 /* ==========================================================================
-   MÉTODO TRADER 369 — MASTERPIECE UX & DESIGN SYSTEM (v14.0)
-   Trilha em Lista Vertical Elegante (Sem distorção de imagens) + Sem Nome César
+   MÉTODO TRADER 369 — MASTERPIECE UX & DESIGN SYSTEM (v15.0)
+   Banner Oficial de Destaque no Topo + Ícones Orbitais Enviados
    ========================================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800;900&family=Space+Grotesk:wght@600;700;800&display=swap');
@@ -251,25 +251,59 @@ nav {
   color: var(--brand-gold-bright);
 }
 
-/* --- HERO SECTION --- */
-.hero-section {
-  padding: 150px 0 90px;
+/* --- BANNER HERO DE TOPO (EXATAMENTE O BANNER DA MARCA 369 EM LARGURA TOTAL) --- */
+.hero-top-banner-section {
+  padding: 130px 0 80px;
   position: relative;
 }
 
-.hero-grid-2col {
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 3.5rem;
-  align-items: center;
+.main-top-banner-box {
+  position: relative;
+  width: 100%;
+  border-radius: 28px;
+  overflow: hidden;
+  border: 1px solid var(--border-gold);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9), 0 0 50px var(--brand-gold-glow);
+  margin-bottom: 3.5rem;
+  transition: var(--transition);
+}
+
+.main-top-banner-box:hover {
+  transform: scale(1.005);
+  border-color: var(--brand-gold-bright);
+}
+
+.main-top-banner-img {
+  width: 100%;
+  height: auto;
+  max-height: 540px;
+  object-fit: cover;
+  display: block;
+}
+
+.main-top-banner-overlay {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  background: rgba(10, 13, 22, 0.88);
+  backdrop-filter: blur(15px);
+  padding: 0.6rem 1.4rem;
+  border-radius: 999px;
+  border: 1px solid var(--border-gold);
+}
+
+.hero-under-banner-content {
+  text-align: center;
+  max-width: 960px;
+  margin: 0 auto;
 }
 
 .hero-h1 {
   font-family: var(--font-display);
-  font-size: clamp(2.3rem, 4vw, 3.4rem);
+  font-size: clamp(2.4rem, 4.5vw, 3.6rem);
   font-weight: 900;
   line-height: 1.15;
-  margin: 1.25rem 0;
+  margin-bottom: 1.5rem;
   letter-spacing: -1.5px;
 }
 
@@ -279,15 +313,17 @@ nav {
   padding: 1.25rem 1.5rem;
   border-radius: 0 14px 14px 0;
   font-family: var(--font-display);
-  font-size: 1.2rem;
+  font-size: 1.25rem;
   font-weight: 700;
   color: var(--brand-gold-bright);
-  margin-bottom: 1.8rem;
+  margin: 0 auto 2rem;
+  max-width: 820px;
   line-height: 1.5;
+  text-align: left;
 }
 
 .hero-p {
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   color: var(--text-muted);
   line-height: 1.7;
   margin-bottom: 2.5rem;
@@ -297,7 +333,6 @@ nav {
   display: flex;
   gap: 1.25rem;
   flex-wrap: wrap;
-  margin-bottom: 3rem;
 }
 
 .hero-stats-grid {
@@ -310,72 +345,17 @@ nav {
 
 .stat-val {
   font-family: var(--font-display);
-  font-size: 1.85rem;
+  font-size: 1.9rem;
   font-weight: 800;
   color: var(--brand-gold-bright);
   line-height: 1;
 }
 
 .stat-lbl {
-  font-size: 0.8rem;
+  font-size: 0.825rem;
   color: var(--text-dim);
   font-weight: 600;
   margin-top: 0.3rem;
-}
-
-.hero-right-visual {
-  position: relative;
-}
-
-.hero-mockup-card {
-  position: relative;
-  background: var(--bg-card);
-  border: 1px solid var(--border-gold);
-  border-radius: 24px;
-  overflow: hidden;
-  box-shadow: var(--shadow-card), var(--shadow-gold);
-  transition: var(--transition);
-}
-
-.hero-mockup-card:hover {
-  transform: translateY(-6px);
-  border-color: var(--brand-gold-bright);
-}
-
-.hero-mockup-img {
-  width: 100%;
-  height: 480px;
-  object-fit: cover;
-  display: block;
-}
-
-.mockup-floating-badge {
-  position: absolute;
-  z-index: 10;
-  background: rgba(10, 13, 22, 0.92);
-  backdrop-filter: blur(15px);
-  border: 1px solid var(--border-light);
-  padding: 0.8rem 1.4rem;
-  border-radius: 14px;
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: var(--text-white);
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-}
-
-.top-badge {
-  top: 20px;
-  left: 20px;
-  border-color: var(--border-gold);
-}
-
-.bottom-badge {
-  bottom: 20px;
-  right: 20px;
-  border-color: var(--border-gold);
 }
 
 /* --- TICKER MARQUEE --- */
@@ -437,7 +417,7 @@ nav {
   line-height: 1.7;
 }
 
-/* --- LISTA DE PROGRAMAS & MÓDULOS (NOVO SISTEMA EM LISTA VERTICAL INTUITIVA) --- */
+/* --- LISTA DE PROGRAMAS & MÓDULOS --- */
 .program-list-vertical {
   display: flex;
   flex-direction: column;
@@ -768,7 +748,7 @@ nav {
   line-height: 1.6;
 }
 
-/* --- HISTÓRIA DO MÉTODO (MENTOR SECTION) --- */
+/* --- HISTÓRIA DO MÉTODO --- */
 .mentor-grid {
   display: grid;
   grid-template-columns: 0.9fr 1.1fr;
@@ -957,9 +937,13 @@ footer {
 
 /* RESPONSIVE */
 @media (max-width: 1024px) {
-  .hero-grid-2col, .mentor-grid, .comparison-grid {
+  .mentor-grid, .comparison-grid {
     grid-template-columns: 1fr;
     gap: 2.5rem;
+  }
+
+  .main-top-banner-img {
+    max-height: 380px;
   }
 
   .program-list-item {
@@ -978,10 +962,6 @@ footer {
   .hero-stats-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-
-  .hero-mockup-img {
-    height: 380px;
-  }
 }
 
 @media (max-width: 680px) {
@@ -991,6 +971,10 @@ footer {
 
   .hero-h1 {
     font-size: 2.1rem;
+  }
+
+  .main-top-banner-img {
+    max-height: 260px;
   }
 
   .timeline-step-card {
