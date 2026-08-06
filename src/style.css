@@ -1,6 +1,6 @@
 /* ==========================================================================
-   MÉTODO TRADER 369 — MASTERPIECE UX & DESIGN SYSTEM (v19.0)
-   Elementos Gráficos de Fundo + Imagem Única por Seção + WhatsApp Docked Clean
+   MÉTODO TRADER 369 — MASTERPIECE UX & DESIGN SYSTEM (v20.0)
+   Harmonia Visual Total: Métricas em Linha Fina + Enquadramento Perfeito 100% Cover
    ========================================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800;900&family=Space+Grotesk:wght@600;700;800&display=swap');
@@ -155,8 +155,8 @@ body {
   width: 100%;
   height: 100%;
   background-image: 
-    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
   background-size: 55px 55px;
   pointer-events: none;
   z-index: 0;
@@ -340,7 +340,7 @@ body {
   width: 100%;
 }
 
-/* --- BOTÃO FLUTUANTE DE WHATSAPP (CORRIGIDO: 100% DOCKED SEM SOBREPOR CARDS NEM EXPANDIR CIRCULOS GRANDES) --- */
+/* --- BOTÃO FLUTUANTE DE WHATSAPP --- */
 .floating-whatsapp-widget {
   position: fixed;
   bottom: 24px;
@@ -508,44 +508,46 @@ nav {
   display: flex;
   gap: 1.25rem;
   flex-wrap: wrap;
-  margin-bottom: 3rem;
+  margin-bottom: 2.5rem;
 }
 
-.hero-stats-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.25rem;
-  padding-top: 2rem;
+/* NOVO STRIP DE MÉTRICAS MINIMALISTA HARMONIOSO EM LINHA */
+.hero-metrics-strip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1.8rem;
   border-top: 1px solid var(--border-light);
 }
 
-.stat-card-item {
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid var(--border-light);
-  border-radius: 14px;
-  padding: 1rem 0.8rem;
-  text-align: center;
-  transition: var(--transition);
+.metric-item {
+  flex: 1;
+  padding: 0 1.2rem;
+  border-right: 1px solid var(--border-light);
 }
 
-.stat-card-item:hover {
-  border-color: var(--border-gold);
-  background: rgba(245, 158, 11, 0.05);
+.metric-item:first-child {
+  padding-left: 0;
 }
 
-.stat-val {
+.metric-item:last-child {
+  border-right: none;
+  padding-right: 0;
+}
+
+.metric-val {
   font-family: var(--font-display);
-  font-size: 1.85rem;
-  font-weight: 800;
+  font-size: 1.75rem;
+  font-weight: 900;
   color: var(--brand-gold-bright);
   line-height: 1;
 }
 
-.stat-lbl {
-  font-size: 0.775rem;
-  color: var(--text-dim);
+.metric-lbl {
+  font-size: 0.8rem;
+  color: var(--text-muted);
   font-weight: 600;
-  margin-top: 0.3rem;
+  margin-top: 0.35rem;
 }
 
 .hero-right-visual {
@@ -1005,19 +1007,45 @@ nav {
   line-height: 1.6;
 }
 
-/* --- HISTÓRIA DO MÉTODO --- */
+/* --- HISTÓRIA DO MÉTODO (ENQUADRAMENTO PERFEITO DE ALTURA COVER) --- */
 .mentor-grid {
   display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
-  gap: 4rem;
-  align-items: center;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 3.5rem;
+  align-items: stretch;
+}
+
+.mentor-visual-col {
+  display: flex;
+  height: 100%;
+}
+
+.mentor-visual-frame {
+  width: 100%;
+  height: 100%;
+  min-height: 480px;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid var(--border-gold);
+  box-shadow: var(--shadow-card), var(--shadow-gold);
+  position: relative;
+}
+
+.mentor-visual-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .mentor-card-box {
   background: var(--bg-card);
   border: 1px solid var(--border-light);
   border-radius: 24px;
-  padding: 2.5rem;
+  padding: 2.8rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .mentor-quote-p {
@@ -1202,6 +1230,10 @@ footer {
     gap: 2.5rem;
   }
 
+  .mentor-visual-frame {
+    min-height: 350px;
+  }
+
   .hero-widescreen-img {
     min-height: 320px;
   }
@@ -1219,8 +1251,15 @@ footer {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .hero-stats-grid {
+  .hero-metrics-strip {
+    display: grid;
     grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+
+  .metric-item {
+    border-right: none;
+    padding: 0;
   }
 
   .floating-whatsapp-tooltip {
@@ -1302,23 +1341,18 @@ footer {
     font-size: 0.975rem;
   }
 
-  .hero-stats-grid {
+  .hero-metrics-strip {
     grid-template-columns: repeat(2, 1fr);
-    gap: 0.75rem;
-    margin-top: 2rem;
+    gap: 1rem;
     padding-top: 1.5rem;
   }
 
-  .stat-card-item {
-    padding: 0.85rem 0.5rem;
-  }
-
-  .stat-val {
+  .metric-val {
     font-size: 1.45rem;
   }
 
-  .stat-lbl {
-    font-size: 0.72rem;
+  .metric-lbl {
+    font-size: 0.75rem;
   }
 
   .hero-widescreen-card {
@@ -1541,14 +1575,6 @@ footer {
 @media (max-width: 480px) {
   .hero-h1 {
     font-size: 1.75rem;
-  }
-
-  .hero-stats-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .stat-val {
-    font-size: 1.3rem;
   }
 
   .timeline-step-card {
