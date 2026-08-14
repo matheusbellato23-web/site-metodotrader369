@@ -1589,3 +1589,371 @@ footer {
     left: 0.5rem;
   }
 }
+
+/* =============================================
+   ESTEIRA DE PRODUTOS — 4 CARDS DA TRILHA 369
+   ============================================= */
+
+.esteira-section {
+  background: var(--bg-dark);
+  position: relative;
+  overflow: hidden;
+}
+
+.esteira-track-wrap {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  position: relative;
+  padding-top: 2rem;
+  align-items: stretch;
+}
+
+/* Linha conectora horizontal entre cards */
+.esteira-connector-line {
+  display: none; /* hidden by default, shown via ::before pseudo on wrap */
+}
+
+.esteira-track-wrap::before {
+  content: '';
+  position: absolute;
+  top: 90px;
+  left: 10%;
+  right: 10%;
+  height: 2px;
+  background: linear-gradient(90deg,
+    rgba(34,197,94,0.6) 0%,
+    rgba(240,165,0,0.8) 50%,
+    rgba(99,102,241,0.2) 100%
+  );
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* — BASE CARD — */
+.esteira-card {
+  position: relative;
+  background: var(--bg-card);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 22px;
+  padding: 2rem 1.5rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  z-index: 1;
+}
+
+/* — OPEN CARDS (Comunidade & Curso) — */
+.esteira-open {
+  border-color: rgba(34,197,94,0.2);
+}
+
+.esteira-open:hover {
+  transform: translateY(-6px);
+  border-color: rgba(34,197,94,0.45);
+  box-shadow: 0 20px 50px rgba(34,197,94,0.12);
+}
+
+/* — FEATURED (Curso) glow dourado — */
+.esteira-featured {
+  border-color: rgba(240,165,0,0.3);
+  background: linear-gradient(160deg, #13161f 0%, #0f120c 100%);
+  box-shadow: 0 0 30px rgba(240,165,0,0.08);
+}
+
+.esteira-featured:hover {
+  transform: translateY(-8px);
+  border-color: rgba(240,165,0,0.55);
+  box-shadow: 0 24px 60px rgba(240,165,0,0.18);
+}
+
+.esteira-featured-label {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, #f0a500, #fbbf24);
+  color: #000;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  padding: 4px 14px;
+  border-radius: 999px;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* — LOCKED CARDS (Funding & Mentoria) — */
+.esteira-locked {
+  border-color: rgba(255,255,255,0.05);
+  opacity: 0.75;
+  filter: grayscale(0.4);
+}
+
+.esteira-locked:hover {
+  opacity: 0.9;
+  filter: grayscale(0.1);
+  border-color: rgba(99,102,241,0.3);
+  transform: translateY(-4px);
+  box-shadow: 0 14px 40px rgba(99,102,241,0.1);
+}
+
+.esteira-lock-overlay {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.2rem;
+  width: 32px;
+  height: 32px;
+  background: rgba(99,102,241,0.12);
+  border: 1px solid rgba(99,102,241,0.25);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  color: rgba(99,102,241,0.8);
+}
+
+/* — STEP BADGE — */
+.esteira-step-badge {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  margin-bottom: 0.25rem;
+}
+
+/* — STATUS PILL — */
+.esteira-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 999px;
+  width: fit-content;
+}
+
+.status-open {
+  background: rgba(34,197,94,0.1);
+  border: 1px solid rgba(34,197,94,0.25);
+  color: #22c55e;
+}
+
+.status-open i {
+  font-size: 0.55rem;
+  animation: pulse-green 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse-green {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.status-soon {
+  background: rgba(99,102,241,0.1);
+  border: 1px solid rgba(99,102,241,0.2);
+  color: rgba(99,102,241,0.9);
+}
+
+/* — ICON WRAP — */
+.esteira-icon-wrap {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: var(--gold-primary);
+  margin-top: 0.25rem;
+}
+
+.esteira-open .esteira-icon-wrap {
+  background: rgba(34,197,94,0.06);
+  border-color: rgba(34,197,94,0.15);
+  color: #22c55e;
+}
+
+.esteira-featured .esteira-icon-wrap {
+  background: rgba(240,165,0,0.08);
+  border-color: rgba(240,165,0,0.2);
+  color: var(--gold-primary);
+}
+
+/* — TITLE — */
+.esteira-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-white);
+  letter-spacing: -0.5px;
+  margin: 0;
+}
+
+/* — DESC — */
+.esteira-desc {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+  margin: 0;
+  flex-grow: 1;
+}
+
+/* — FEATURES LIST — */
+.esteira-features {
+  list-style: none;
+  padding: 0;
+  margin: 0.25rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.esteira-features li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.esteira-features li i {
+  font-size: 0.65rem;
+  color: #22c55e;
+  flex-shrink: 0;
+}
+
+.esteira-locked .esteira-features li i {
+  color: rgba(99,102,241,0.5);
+  font-size: 0.4rem;
+}
+
+/* — CTA AREA — */
+.esteira-cta {
+  margin-top: auto;
+  padding-top: 1rem;
+}
+
+/* — BUTTONS — */
+.btn-esteira-open {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.88rem;
+  padding: 12px 20px;
+  border-radius: 12px;
+  text-decoration: none;
+  width: 100%;
+  justify-content: center;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 18px rgba(34,197,94,0.25);
+}
+
+.btn-esteira-open:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(34,197,94,0.35);
+}
+
+.btn-esteira-gold {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #fbbf24, #f0a500);
+  color: #000;
+  font-weight: 800;
+  font-size: 0.88rem;
+  padding: 12px 20px;
+  border-radius: 12px;
+  text-decoration: none;
+  width: 100%;
+  justify-content: center;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 20px rgba(240,165,0,0.3);
+}
+
+.btn-esteira-gold:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(240,165,0,0.45);
+}
+
+.btn-esteira-waitlist {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(99,102,241,0.1);
+  border: 1px solid rgba(99,102,241,0.3);
+  color: rgba(149,152,255,0.9);
+  font-weight: 700;
+  font-size: 0.88rem;
+  padding: 12px 20px;
+  border-radius: 12px;
+  text-decoration: none;
+  width: 100%;
+  justify-content: center;
+  transition: all 0.25s ease;
+}
+
+.btn-esteira-waitlist:hover {
+  background: rgba(99,102,241,0.18);
+  border-color: rgba(99,102,241,0.5);
+  color: #a5b4fc;
+  transform: translateY(-2px);
+}
+
+/* — MOBILE RESPONSIVE — */
+@media (max-width: 1100px) {
+  .esteira-track-wrap {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+
+  .esteira-track-wrap::before {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .esteira-track-wrap {
+    grid-template-columns: 1fr;
+    gap: 1.1rem;
+  }
+
+  .esteira-card {
+    padding: 1.5rem 1.25rem;
+    border-radius: 18px;
+  }
+
+  .esteira-title {
+    font-size: 1.1rem;
+  }
+
+  .esteira-desc {
+    font-size: 0.85rem;
+  }
+
+  .esteira-featured-label {
+    font-size: 0.65rem;
+    padding: 3px 12px;
+  }
+}
