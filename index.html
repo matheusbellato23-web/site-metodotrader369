@@ -346,7 +346,7 @@
             <li><i class="fas fa-circle"></i> Divisão de lucros</li>
           </ul>
           <div class="esteira-cta">
-            <a href="#waitlistModal" class="btn btn-esteira-waitlist" id="btn-funding-waitlist" data-product="Funding (Trader Financiado)">
+            <a href="captura.html?produto=Funding" class="btn btn-esteira-waitlist" id="btn-funding-waitlist">
               <i class="fas fa-bell"></i> Entrar na Fila de Espera
             </a>
           </div>
@@ -372,7 +372,7 @@
             <li><i class="fas fa-circle"></i> Plano de desenvolvimento pessoal</li>
           </ul>
           <div class="esteira-cta">
-            <a href="#waitlistModal" class="btn btn-esteira-waitlist" id="btn-mentoria-waitlist" data-product="Mentoria Exclusiva (1:1 com César)">
+            <a href="captura.html?produto=Mentoria" class="btn btn-esteira-waitlist" id="btn-mentoria-waitlist">
               <i class="fas fa-bell"></i> Entrar na Fila de Espera
             </a>
           </div>
@@ -697,58 +697,13 @@
     </div>
   </footer>
 
-  <!-- MODAL FLUTUANTE DE LISTA DE ESPERA (FUNDING & MENTORIA) -->
-  <div id="waitlistModal" class="waitlist-modal-overlay">
-    <div class="waitlist-modal-card">
-      <button type="button" class="waitlist-modal-close" id="waitlistModalClose" title="Fechar">&times;</button>
-      
-      <div id="modalFormContainer">
-        <div class="modal-product-badge" id="modalProductBadge">
-          <i class="fas fa-lock"></i> <span id="modalProductBadgeText">Módulo Exclusivo</span>
-        </div>
-        
-        <h3 class="modal-title">Entrar na Fila de Espera</h3>
-        <p class="modal-subtitle">
-          Cadastre seus dados para receber prioridade máxima e condições exclusivas assim que as vagas forem abertas.
-        </p>
-
-        <form id="modalWaitlistForm" novalidate>
-          <div class="modal-form-group">
-            <label for="modalNome">Nome Completo</label>
-            <input type="text" id="modalNome" name="nome" placeholder="Seu nome completo" required autocomplete="name">
-          </div>
-
-          <div class="modal-form-group">
-            <label for="modalEmail">Seu Melhor E-mail</label>
-            <input type="email" id="modalEmail" name="email" placeholder="seuemail@exemplo.com" required autocomplete="email">
-          </div>
-
-          <div class="modal-form-group">
-            <label for="modalTelefone">WhatsApp (com DDD)</label>
-            <input type="tel" id="modalTelefone" name="telefone" placeholder="(11) 99999-9999" required autocomplete="tel">
-          </div>
-
-          <button type="submit" class="modal-submit-btn" id="modalSubmitBtn">
-            <i class="fas fa-bell"></i> Garantir Meu Lugar na Lista
-          </button>
-        </form>
-      </div>
-
-      <div id="modalSuccessWrap" class="modal-success-wrap">
-        <div class="modal-success-icon">
-          <i class="fas fa-check"></i>
-        </div>
-        <h3>Inscrição Confirmada! 🎯</h3>
-        <p>
-          Seus dados foram salvos com prioridade na lista de espera. Enviamos uma confirmação para o seu e-mail!
-        </p>
-        <a href="#" id="modalSuccessWaBtn" target="_blank" rel="noopener noreferrer" class="modal-wa-btn">
-          <i class="fab fa-whatsapp"></i> Confirmar no WhatsApp
-        </a>
-      </div>
-
+  <!-- BOTAO FLUTUANTE DE ATENDIMENTO DIRETO NO WHATSAPP -->
+  <a href="https://wa.me/5513997862359?text=Ol%C3%A1!%20Estou%20no%20site%20do%20M%C3%A9todo%20Trader%20369%20e%20gostaria%20de%20atendimento." target="_blank" rel="noopener noreferrer" class="floating-whatsapp-widget" title="Atendimento WhatsApp 369">
+    <div class="floating-whatsapp-icon">
+      <i class="fab fa-whatsapp"></i>
     </div>
-  </div>
+    <span class="floating-whatsapp-tooltip">Suporte & Vagas</span>
+  </a>
 
   <script type="module" src="/src/main.js"></script>
 </body>
