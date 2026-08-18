@@ -483,51 +483,63 @@ nav {
 
 /* --- HERO SECTION --- */
 .hero-section {
-  padding: 112px 0 80px;
+  padding: 100px 0 60px;
   position: relative;
 }
 
 .hero-grid-2col {
   display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
-  gap: 3.5rem;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 2.5rem;
   align-items: center;
+}
+
+.hero-left-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .hero-h1 {
   font-family: var(--font-display);
-  font-size: clamp(2.1rem, 3.8vw, 3.1rem);
+  font-size: clamp(1.85rem, 3.2vw, 2.65rem);
   font-weight: 900;
-  line-height: 1.14;
-  margin: 1rem 0;
-  letter-spacing: -1.5px;
+  line-height: 1.15;
+  margin: 0.85rem 0;
+  letter-spacing: -1px;
 }
 
 .hero-quote-highlight {
   background: rgba(245, 158, 11, 0.04);
-  border-left: 2px solid var(--brand-gold);
-  padding: 0.8rem 1.1rem;
-  border-radius: 0 10px 10px 0;
+  border-left: 3px solid var(--brand-gold);
+  padding: 0.65rem 1rem;
+  border-radius: 0 8px 8px 0;
   font-family: var(--font-display);
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: 600;
-  color: rgba(251,191,36,0.85);
-  margin-bottom: 1.4rem;
-  line-height: 1.55;
+  color: rgba(251,191,36,0.9);
+  margin-bottom: 1.1rem;
+  line-height: 1.5;
 }
 
 .hero-p {
-  font-size: 1rem;
+  font-size: 0.95rem;
   color: var(--text-muted);
-  line-height: 1.7;
-  margin-bottom: 2rem;
+  line-height: 1.65;
+  margin-bottom: 1.5rem;
+  max-width: 580px;
 }
 
 .hero-actions {
   display: flex;
-  gap: 1rem;
+  gap: 0.85rem;
   flex-wrap: wrap;
-  margin-bottom: 2rem;
+  margin-bottom: 1.25rem;
+}
+
+.hero-actions .btn {
+  padding: 0.95rem 1.8rem;
+  font-size: 0.95rem;
 }
 
 /* ==========================================================================
@@ -611,17 +623,17 @@ nav {
 .cmc-metrics-dashboard {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 0.85rem;
-  margin-top: 1.5rem;
-  padding-top: 1.5rem;
+  gap: 0.75rem;
+  margin-top: 1.1rem;
+  padding-top: 1.1rem;
   border-top: 1px solid var(--border-light);
 }
 
 .cmc-metric-card {
   background: rgba(16, 20, 34, 0.6);
   border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 12px;
-  padding: 0.9rem 1rem;
+  border-radius: 10px;
+  padding: 0.65rem 0.85rem;
   transition: border-color 0.2s, transform 0.2s;
 }
 
@@ -634,69 +646,69 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.25rem;
 }
 
 .cmc-m-title {
-  font-size: 0.65rem;
+  font-size: 0.62rem;
   font-weight: 700;
   color: var(--text-dim);
-  letter-spacing: 0.5px;
+  letter-spacing: 0.4px;
 }
 
 .cmc-badge-pill-green {
-  font-size: 0.6rem;
+  font-size: 0.58rem;
   font-weight: 800;
   color: #10b981;
   background: rgba(16, 185, 129, 0.12);
-  padding: 2px 6px;
-  border-radius: 4px;
+  padding: 1px 5px;
+  border-radius: 3px;
 }
 
 .cmc-badge-pill-gold {
-  font-size: 0.6rem;
+  font-size: 0.58rem;
   font-weight: 800;
   color: var(--brand-gold-bright);
   background: rgba(245, 158, 11, 0.12);
-  padding: 2px 6px;
-  border-radius: 4px;
+  padding: 1px 5px;
+  border-radius: 3px;
 }
 
 .cmc-badge-pill-blue {
-  font-size: 0.6rem;
+  font-size: 0.58rem;
   font-weight: 800;
   color: #0088ff;
   background: rgba(0, 136, 255, 0.12);
-  padding: 2px 6px;
-  border-radius: 4px;
+  padding: 1px 5px;
+  border-radius: 3px;
 }
 
 .cmc-m-value {
   font-family: var(--font-display);
-  font-size: 1.45rem;
+  font-size: 1.25rem;
   font-weight: 900;
   color: var(--brand-gold-bright);
   line-height: 1.1;
 }
 
 .cmc-m-sub {
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   color: var(--text-muted);
-  margin-top: 0.2rem;
+  margin-top: 0.15rem;
 }
 
 /* --- CMC TERMINAL CARD (HERO RIGHT VISUAL) --- */
 .cmc-terminal-card {
   background: #0b0e18;
   border: 1px solid rgba(245, 158, 11, 0.25);
-  border-radius: 18px;
+  border-radius: 14px;
   overflow: hidden;
-  box-shadow: 0 25px 60px rgba(0,0,0,0.85), 0 0 35px rgba(245, 158, 11, 0.08);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.85), 0 0 30px rgba(245, 158, 11, 0.08);
 }
 
 .cmc-card-topbar {
   background: #070910;
-  padding: 10px 16px;
+  padding: 8px 14px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -704,27 +716,27 @@ nav {
 }
 
 .cmc-card-tab-active {
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   font-weight: 800;
   color: var(--text-white);
-  letter-spacing: 0.8px;
+  letter-spacing: 0.7px;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.45rem;
 }
 
 .cmc-live-indicator {
-  font-size: 0.68rem;
+  font-size: 0.65rem;
   font-weight: 700;
   color: #10b981;
   display: flex;
   align-items: center;
-  gap: 0.4rem;
+  gap: 0.35rem;
 }
 
 .live-dot {
-  width: 7px;
-  height: 7px;
+  width: 6px;
+  height: 6px;
   background: #10b981;
   border-radius: 50%;
   animation: pulse-green 1.2s infinite;
@@ -732,25 +744,25 @@ nav {
 
 .cmc-card-data-row {
   display: grid;
-  grid-template-columns: 1.2fr 1fr 0.9fr;
-  gap: 0.5rem;
-  padding: 10px 16px;
+  grid-template-columns: 1.1fr 1.1fr 0.8fr;
+  gap: 0.4rem;
+  padding: 8px 14px;
   background: rgba(255, 255, 255, 0.015);
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .cmc-data-lbl {
-  font-size: 0.6rem;
+  font-size: 0.58rem;
   color: var(--text-dim);
   font-weight: 700;
-  letter-spacing: 0.4px;
+  letter-spacing: 0.3px;
 }
 
 .cmc-data-val {
-  font-size: 0.74rem;
+  font-size: 0.7rem;
   font-weight: 800;
   color: var(--text-light);
-  margin-top: 2px;
+  margin-top: 1px;
 }
 
 .cmc-image-viewport {
@@ -762,8 +774,8 @@ nav {
 .cmc-image-viewport .hero-widescreen-img {
   width: 100%;
   display: block;
-  min-height: 320px;
-  max-height: 380px;
+  min-height: 240px;
+  max-height: 290px;
   object-fit: cover;
   opacity: 0.92;
   transition: transform 0.4s ease, opacity 0.3s;
@@ -776,21 +788,21 @@ nav {
 
 .cmc-chart-overlay {
   position: absolute;
-  bottom: 12px;
-  left: 12px;
-  right: 12px;
+  bottom: 8px;
+  left: 8px;
+  right: 8px;
   display: flex;
-  gap: 0.75rem;
+  gap: 0.5rem;
 }
 
 .cmc-hud-stat {
   flex: 1;
-  background: rgba(5, 7, 13, 0.85);
+  background: rgba(5, 7, 13, 0.88);
   backdrop-filter: blur(8px);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  padding: 6px 12px;
-  border-radius: 8px;
-  font-size: 0.72rem;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 0.65rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -798,12 +810,12 @@ nav {
 
 .cmc-card-footer-stats {
   background: #070910;
-  padding: 10px 16px;
+  padding: 8px 14px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   border-top: 1px solid rgba(255, 255, 255, 0.06);
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   color: var(--text-muted);
 }
 
