@@ -210,7 +210,7 @@ if (fs.existsSync(DIST_DIR)) {
   app.get('/captura', (req, res) => {
     res.sendFile(path.join(DIST_DIR, 'captura.html'));
   });
-  app.get('*', (req, res) => {
+  app.use((req, res) => {
     res.sendFile(path.join(DIST_DIR, 'index.html'));
   });
 } else {
@@ -219,10 +219,11 @@ if (fs.existsSync(DIST_DIR)) {
   app.get('/captura', (req, res) => {
     res.sendFile(path.join(__dirname, 'captura.html'));
   });
-  app.get('*', (req, res) => {
+  app.use((req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
   });
 }
+
 
 app.listen(PORT, '0.0.0.0', () => {
   console.log(`🚀 Servidor Método Trader 369 rodando na porta ${PORT}`);
