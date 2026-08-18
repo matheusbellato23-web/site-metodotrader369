@@ -648,7 +648,12 @@
   <script>
     // — Read product name from URL param —
     const urlParams = new URLSearchParams(window.location.search);
-    const produto = urlParams.get('produto') || 'Produto Exclusivo';
+    let produto = urlParams.get('produto') || 'Módulo Exclusivo';
+    if (produto.toLowerCase().includes('funding')) {
+      produto = 'Funding (Trader Financiado)';
+    } else if (produto.toLowerCase().includes('mentoria')) {
+      produto = 'Mentoria Exclusiva (1:1 com César)';
+    }
 
     // Inject product name in the title
     document.getElementById('cap-product-name').textContent = produto;
@@ -656,8 +661,8 @@
 
     // Icon per product
     const iconMap = {
-      'Funding':  'fas fa-chart-line',
-      'Mentoria': 'fas fa-crown',
+      'Funding (Trader Financiado)': 'fas fa-chart-line',
+      'Mentoria Exclusiva (1:1 com César)': 'fas fa-crown',
     };
     const iconEl = document.getElementById('cap-product-icon');
     iconEl.className = iconMap[produto] || 'fas fa-lock';
@@ -665,12 +670,31 @@
     // Page title
     document.title = `Lista de Espera — ${produto} | Método Trader 369`;
 
-    // — Form submission —
+    // — Máscara de Telefone (DDD + 9 dígitos) —
+    const telInput = document.getElementById('cap-telefone');
+    telInput.addEventListener('input', function(e) {
+      let v = e.target.value.replace(/\D/g, '');
+      if (v.length > 11) v = v.slice(0, 11);
+      if (v.length > 10) {
+        e.target.value = `(${v.slice(0, 2)}) ${v.slice(2, 7)}-${v.slice(7)}`;
+      } else if (v.length > 6) {
+        e.target.value = `(${v.slice(0, 2)}) ${v.slice(2, 6)}-${v.slice(6)}`;
+      } else if (v.length > 2) {
+        e.target.value = `(${v.slice(0, 2)}) ${v.slice(2)}`;
+      } else if (v.length > 0) {
+        e.target.value = `(${v}`;
+      } else {
+        e.target.value = '';
+      }
+    });
+
+    // — Form submission via SMTP Backend API —
     const form = document.getElementById('captura-form');
+    const submitBtn = document.getElementById('cap-submit');
     const successMsg = document.getElementById('cap-success-msg');
     const successWaBtn = document.getElementById('cap-success-wa');
 
-    form.addEventListener('submit', function(e) {
+    form.addEventListener('submit', async function(e) {
       e.preventDefault();
 
       const nome     = document.getElementById('cap-nome').value.trim();
@@ -682,26 +706,73 @@
         return;
       }
 
-      // Build WhatsApp message
-      const msg = encodeURIComponent(
-        `Olá! Gostaria de entrar na lista de espera do ${produto} do Método Trader 369.\n\n` +
-        `Nome: ${nome}\nE-mail: ${email}\nWhatsApp: ${telefone}`
-      );
+      if (!email.includes('@') || !email.includes('.')) {
+        alert('Por favor, insira um e-mail válido.');
+        return;
+      }
 
-      const waUrl = `https://wa.me/5513997862359?text=${msg}`;
+      const rawDigits = telefone.replace(/\D/g, '');
+      if (rawDigits.length < 10) {
+        alert('Por favor, insira um telefone válido com DDD (ex: 11 99999-9999).');
+        return;
+      }
 
-      // Update success WA link
-      successWaBtn.href = waUrl;
+      // Estado de carregamento
+      submitBtn.disabled = true;
+      const originalBtnHtml = submitBtn.innerHTML;
+      submitBtn.innerHTML = '<i class="fas fa-circle-notch fa-spin"></i> Confirmando Inscrição...';
 
-      // Show success, hide form
-      form.style.display = 'none';
-      successMsg.classList.add('visible');
+      try {
+        // Envia para o backend Express / SMTP
+        const response = await fetch('/api/captura', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            nome,
+            email,
+            telefone,
+            produto
+          })
+        });
 
-      // Auto-open WhatsApp after a brief pause
-      setTimeout(() => {
-        window.open(waUrl, '_blank', 'noopener,noreferrer');
-      }, 1200);
+        const data = await response.json();
+
+        // Monta o link do WhatsApp para atendimento
+        const cleanDigits = rawDigits.replace(/^55/, '');
+        const msg = encodeURIComponent(
+          `Olá César! Me cadastrei na lista de espera do ${produto} do Método Trader 369.\n\n` +
+          `👤 Nome: ${nome}\n` +
+          `📧 E-mail: ${email}\n` +
+          `📱 WhatsApp: ${telefone}`
+        );
+        const waUrl = `https://wa.me/5513997862359?text=${msg}`;
+
+        // Atualiza botão de confirmação do WhatsApp
+        successWaBtn.href = waUrl;
+
+        // Exibe tela de sucesso
+        form.style.display = 'none';
+        successMsg.classList.add('visible');
+
+      } catch (err) {
+        console.error('Erro no envio:', err);
+        // Fallback: Redireciona diretamente para o WhatsApp mesmo em caso de falha de rede
+        const msg = encodeURIComponent(
+          `Olá! Gostaria de entrar na lista de espera do ${produto} do Método Trader 369.\n\n` +
+          `Nome: ${nome}\nE-mail: ${email}\nWhatsApp: ${telefone}`
+        );
+        const waUrl = `https://wa.me/5513997862359?text=${msg}`;
+        successWaBtn.href = waUrl;
+        form.style.display = 'none';
+        successMsg.classList.add('visible');
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalBtnHtml;
+      }
     });
   </script>
+
 </body>
 </html>

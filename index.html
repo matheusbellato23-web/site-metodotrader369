@@ -59,13 +59,40 @@
   <div class="ambient-glow-gold"></div>
   <div class="ambient-glow-blue"></div>
 
+  <!-- TOP GLOBAL STATS BAR (ESTILO COINMARKETCAP) -->
+  <div class="cmc-top-bar">
+    <div class="container cmc-top-flex">
+      <div class="cmc-top-item">
+        <span class="cmc-lbl">Alunos Ativos:</span>
+        <span class="cmc-val text-gold">+95 <i class="fas fa-caret-up text-emerald"></i></span>
+      </div>
+      <div class="cmc-top-item">
+        <span class="cmc-lbl">Taxa de Acerto Média (R:R 1:3):</span>
+        <span class="cmc-val text-emerald">74.8% <i class="fas fa-caret-up"></i></span>
+      </div>
+      <div class="cmc-top-item">
+        <span class="cmc-lbl">Mercados:</span>
+        <span class="cmc-val">B3 · Forex · Crypto</span>
+      </div>
+      <div class="cmc-top-item">
+        <span class="cmc-lbl">Setup Dominante:</span>
+        <span class="cmc-val text-gold">CRT + ICT Pools</span>
+      </div>
+      <div class="cmc-top-item cmc-top-status">
+        <span class="cmc-live-dot"></span>
+        <span class="cmc-lbl">Status Sala ao Vivo:</span>
+        <span class="cmc-val text-emerald">Seg a Sáb (9h - 18h)</span>
+      </div>
+    </div>
+  </div>
+
   <!-- Header Navigation Navbar -->
   <header id="header">
     <div class="container">
       <nav>
         <a href="#" class="logo-brand-wrap">
-          <!-- Logo Oficial 369 (Triângulo Invertido com 3 Nós Coloridos) -->
-          <svg width="42" height="42" viewBox="0 0 100 100" fill="none">
+          <!-- Logo Oficial 369 -->
+          <svg width="38" height="38" viewBox="0 0 100 100" fill="none">
             <circle cx="50" cy="50" r="44" stroke="rgba(255,255,255,0.3)" stroke-width="2.5"/>
             <polygon points="25,32 75,32 50,78" stroke="#ffffff" stroke-width="2.5" fill="none" stroke-linejoin="round"/>
             <circle cx="25" cy="32" r="5" fill="#ff7a00"/>
@@ -79,10 +106,10 @@
         </a>
 
         <ul class="nav-links-row">
-          <li><a href="#modulos" class="nav-item-link">Programas & Módulos</a></li>
+          <li><a href="#modulos" class="nav-item-link"><i class="fas fa-chart-pie" style="font-size: 0.75rem; margin-right: 4px; color: var(--brand-gold);"></i> Esteira</a></li>
           <li><a href="#framework" class="nav-item-link">Framework 369</a></li>
-          <li><a href="#comparativo" class="nav-item-link">Por Que Funciona</a></li>
-          <li><a href="#historia" class="nav-item-link">Sobre o Método</a></li>
+          <li><a href="#comparativo" class="nav-item-link">Comparativo</a></li>
+          <li><a href="#historia" class="nav-item-link">Origem</a></li>
           <li><a href="#faq" class="nav-item-link">FAQ</a></li>
         </ul>
 
@@ -101,8 +128,9 @@
         <!-- COLUNA ESQUERDA: CONTEÚDO E CHAMADA -->
         <div class="hero-left-content">
           
-          <div class="masterclass-badge-v2">
-            <span class="badge-dot-gold"></span> FORMAÇÃO & MENTORIA DE LEITURA INSTITUCIONAL
+          <div class="cmc-rank-badge">
+            <span class="cmc-rank-num">#1</span>
+            <span>FORMAÇÃO INSTITUCIONAL B3, FOREX & CRIPTO</span>
           </div>
 
           <h1 class="hero-h1">
@@ -114,58 +142,109 @@
           </div>
 
           <p class="hero-p">
-            Compreenda a lógica dos algoritmos interbancários, liquidez e manipulação (SMC, ICT e CRT Romeo) sem achismo, indicadores velhos ou ansiedade diante do gráfico.
+            Compreenda a lógica dos algoritmos interbancários, liquidez e manipulação (SMC, ICT e CRT Romeo) sem achismo, indicadores atrasados ou ansiedade diante da tela.
           </p>
 
           <div class="hero-actions">
             <a href="https://wa.me/5513997862359?text=Ol%C3%A1!%20Gostaria%20de%20conhecer%20o%20M%C3%A9todo%20Trader%20369." target="_blank" rel="noopener noreferrer" class="btn btn-gold-action">
-              <i class="fab fa-whatsapp" style="font-size: 1.25rem;"></i> Falar com o Especialista no WhatsApp
+              <i class="fab fa-whatsapp" style="font-size: 1.2rem;"></i> Falar no WhatsApp com o Especialista
             </a>
             <a href="#modulos" class="btn btn-glass-action">
-              Conhecer a Formação <i class="fas fa-arrow-down"></i>
+              Ver Esteira de Produtos <i class="fas fa-arrow-down"></i>
             </a>
           </div>
 
-          <!-- LINHA DE MÉTRICAS MINIMALISTA HARMONIOSA (SEM CAIXAS ESCURAS DESPROPORCIONAIS) -->
-          <div class="hero-metrics-strip">
-            <div class="metric-item">
-              <div class="metric-val">~95</div>
-              <div class="metric-lbl">Alunos Registrados</div>
+          <!-- MINI DASHBOARD DE MÉTRICAS ESTILO TERMINAL CMC -->
+          <div class="cmc-metrics-dashboard">
+            <div class="cmc-metric-card">
+              <div class="cmc-m-header">
+                <span class="cmc-m-title">ALUNOS REGISTRADOS</span>
+                <span class="cmc-badge-pill-green">+100% VIP</span>
+              </div>
+              <div class="cmc-m-value">+95</div>
+              <div class="cmc-m-sub">Operadores Destravados</div>
             </div>
-            <div class="metric-item">
-              <div class="metric-val">6 Anos</div>
-              <div class="metric-lbl">Estudo & Prática</div>
+
+            <div class="cmc-metric-card">
+              <div class="cmc-m-header">
+                <span class="cmc-m-title">TEMPO DE PRÁTICA</span>
+                <span class="cmc-badge-pill-gold">CONSOLIDADO</span>
+              </div>
+              <div class="cmc-m-value">6 Anos</div>
+              <div class="cmc-m-sub">Estudo & Validação Real</div>
             </div>
-            <div class="metric-item">
-              <div class="metric-val">6 Passos</div>
-              <div class="metric-lbl">Framework 369</div>
-            </div>
-            <div class="metric-item">
-              <div class="metric-val">100%</div>
-              <div class="metric-lbl">Sem Sensacionalismo</div>
+
+            <div class="cmc-metric-card">
+              <div class="cmc-m-header">
+                <span class="cmc-m-title">FRAMEWORK T.R.A.D.E.R.</span>
+                <span class="cmc-badge-pill-blue">6 ETAPAS</span>
+              </div>
+              <div class="cmc-m-value">1:3+</div>
+              <div class="cmc-m-sub">Relação Risco : Retorno</div>
             </div>
           </div>
         </div>
 
-        <!-- COLUNA DIREITA: EXIBIÇÃO EXCLUSIVA DO HERO BANNER DA MARCA -->
+        <!-- COLUNA DIREITA: DASHBOARD TERMINAL INSTITUCIONAL CMC STYLE -->
         <div class="hero-right-visual">
-          <div class="hero-widescreen-card">
-            <!-- Badge Flutuante Topo -->
-            <div class="mockup-floating-badge top-badge">
-              <i class="fas fa-circle" style="color: #25d366; font-size: 0.6rem;"></i> ANÁLISE AO VIVO • B3 / FOREX / CRIPTO
-            </div>
-
-            <!-- Imagem Exclusiva do Hero Banner -->
-            <img src="/brand_hero_banner.png" alt="Método Trader 369 — Visual de Marca Oficial" class="hero-widescreen-img">
-
-            <!-- Badge Flutuante Base -->
-            <div class="mockup-floating-badge bottom-badge">
-              <i class="fas fa-user-check brand-gold"></i>
-              <div>
-                <strong>+95 Alunos Destravados</strong>
-                <div style="font-size: 0.75rem; color: var(--text-muted);">Mentalidade • Execução • Consistência</div>
+          <div class="cmc-terminal-card">
+            
+            <!-- Terminal Header -->
+            <div class="cmc-card-topbar">
+              <div class="cmc-card-tab-active">
+                <i class="fas fa-chart-line text-gold"></i> INSTITUTIONAL SCANNER
+              </div>
+              <div class="cmc-live-indicator">
+                <span class="live-dot"></span> LIVE 369 ENGINE
               </div>
             </div>
+
+            <!-- Terminal Market Data Bar -->
+            <div class="cmc-card-data-row">
+              <div>
+                <div class="cmc-data-lbl">ATIVO ANALISADO</div>
+                <div class="cmc-data-val">WIN / WDO / BTC / EURUSD</div>
+              </div>
+              <div>
+                <div class="cmc-data-lbl">ALGORITMO DETECTADO</div>
+                <div class="cmc-data-val text-emerald">IPDA INTERBANK 369</div>
+              </div>
+              <div>
+                <div class="cmc-data-lbl">MANIPULAÇÃO (CRT)</div>
+                <div class="cmc-data-val text-gold">CONFIRMADA</div>
+              </div>
+            </div>
+
+            <!-- Imagem Oficial do Banner com Efeito de Monitor de Trading -->
+            <div class="cmc-image-viewport">
+              <img src="/brand_hero_banner.png" alt="Método Trader 369 — Visual de Marca Oficial" class="hero-widescreen-img">
+              
+              <!-- Overlay Mini Chart HUD -->
+              <div class="cmc-chart-overlay">
+                <div class="cmc-hud-stat">
+                  <span>Liquidity Pool:</span>
+                  <strong class="text-gold">BSL Capturada</strong>
+                </div>
+                <div class="cmc-hud-stat">
+                  <span>Mitigação FVG:</span>
+                  <strong class="text-emerald">Executada 100%</strong>
+                </div>
+              </div>
+            </div>
+
+            <!-- Terminal Footer Stats Bar -->
+            <div class="cmc-card-footer-stats">
+              <div class="cmc-foot-item">
+                <i class="fas fa-shield-alt text-gold"></i> Risco Controlado
+              </div>
+              <div class="cmc-foot-item">
+                <i class="fas fa-check-double text-emerald"></i> Checklist 100% Objetivo
+              </div>
+              <div class="cmc-foot-item">
+                <i class="fas fa-user-check text-blue"></i> Acompanhamento Seg-Sáb
+              </div>
+            </div>
+
           </div>
         </div>
 
@@ -398,10 +477,17 @@
       </div>
 
       <div class="comparison-table-box">
+        <div class="comp-table-header">
+          <div class="comp-th comp-th-bad">
+            <i class="fas fa-times-circle"></i> Trading Tradicional / Achismo
+          </div>
+          <div class="comp-th comp-th-good">
+            <i class="fas fa-check-circle"></i> Método Trader 369 (Institucional)
+          </div>
+        </div>
         <div class="comparison-grid">
           <!-- BAD -->
           <div class="comp-col-bad">
-            <h3 class="comp-head" style="color: #ef4444;"><i class="fas fa-times-circle"></i> Trading Tradicional / Achismo</h3>
             <ul class="comp-list">
               <li class="comp-item"><i class="fas fa-times" style="color: #ef4444;"></i><span>Opera por indicadores atrasados (Cruzamento de médias, IFR poluído).</span></li>
               <li class="comp-item"><i class="fas fa-times" style="color: #ef4444;"></i><span>Compra no topo e vende no fundo por falta de leitura de liquidez.</span></li>
@@ -413,7 +499,6 @@
 
           <!-- GOOD -->
           <div class="comp-col-good">
-            <h3 class="comp-head" style="color: var(--brand-gold-bright);"><i class="fas fa-check-circle"></i> Método Trader 369 (Institucional)</h3>
             <ul class="comp-list">
               <li class="comp-item"><i class="fas fa-check" style="color: var(--brand-gold-bright);"></i><span>Gráfico limpo com foco em algoritmos, SMC, ICT e CRT Romeo.</span></li>
               <li class="comp-item"><i class="fas fa-check" style="color: var(--brand-gold-bright);"></i><span>Identifica zonas de liquidez e entra junto com o dinheiro grande.</span></li>
@@ -612,14 +697,60 @@
     </div>
   </footer>
 
-  <!-- BOTAO FLUTUANTE DE ATENDIMENTO DIRETO NO WHATSAPP -->
-  <a href="https://wa.me/5513997862359?text=Ol%C3%A1!%20Estou%20no%20site%20do%20M%C3%A9todo%20Trader%20369%20e%20gostaria%20de%20atendimento." target="_blank" rel="noopener noreferrer" class="floating-whatsapp-widget" title="Atendimento WhatsApp 369">
-    <div class="floating-whatsapp-icon">
-      <i class="fab fa-whatsapp"></i>
+  <!-- MODAL FLUTUANTE DE LISTA DE ESPERA (FUNDING & MENTORIA) -->
+  <div id="waitlistModal" class="waitlist-modal-overlay">
+    <div class="waitlist-modal-card">
+      <button type="button" class="waitlist-modal-close" id="waitlistModalClose" title="Fechar">&times;</button>
+      
+      <div id="modalFormContainer">
+        <div class="modal-product-badge" id="modalProductBadge">
+          <i class="fas fa-lock"></i> <span id="modalProductBadgeText">Módulo Exclusivo</span>
+        </div>
+        
+        <h3 class="modal-title">Entrar na Fila de Espera</h3>
+        <p class="modal-subtitle">
+          Cadastre seus dados para receber prioridade máxima e condições exclusivas assim que as vagas forem abertas.
+        </p>
+
+        <form id="modalWaitlistForm" novalidate>
+          <div class="modal-form-group">
+            <label for="modalNome">Nome Completo</label>
+            <input type="text" id="modalNome" name="nome" placeholder="Seu nome completo" required autocomplete="name">
+          </div>
+
+          <div class="modal-form-group">
+            <label for="modalEmail">Seu Melhor E-mail</label>
+            <input type="email" id="modalEmail" name="email" placeholder="seuemail@exemplo.com" required autocomplete="email">
+          </div>
+
+          <div class="modal-form-group">
+            <label for="modalTelefone">WhatsApp (com DDD)</label>
+            <input type="tel" id="modalTelefone" name="telefone" placeholder="(11) 99999-9999" required autocomplete="tel">
+          </div>
+
+          <button type="submit" class="modal-submit-btn" id="modalSubmitBtn">
+            <i class="fas fa-bell"></i> Garantir Meu Lugar na Lista
+          </button>
+        </form>
+      </div>
+
+      <div id="modalSuccessWrap" class="modal-success-wrap">
+        <div class="modal-success-icon">
+          <i class="fas fa-check"></i>
+        </div>
+        <h3>Inscrição Confirmada! 🎯</h3>
+        <p>
+          Seus dados foram salvos com prioridade na lista de espera. Enviamos uma confirmação para o seu e-mail!
+        </p>
+        <a href="#" id="modalSuccessWaBtn" target="_blank" rel="noopener noreferrer" class="modal-wa-btn">
+          <i class="fab fa-whatsapp"></i> Confirmar no WhatsApp
+        </a>
+      </div>
+
     </div>
-    <span class="floating-whatsapp-tooltip">Suporte & Vagas</span>
-  </a>
+  </div>
 
   <script type="module" src="/src/main.js"></script>
 </body>
 </html>
+
