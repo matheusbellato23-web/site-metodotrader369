@@ -322,6 +322,41 @@
       flex-shrink: 0;
     }
 
+    .cap-mentor-seal {
+      margin-top: 1.5rem;
+      padding: 1rem 1.25rem;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(245, 158, 11, 0.25);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .cap-mentor-avatar {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--gold);
+      box-shadow: 0 0 15px rgba(245, 158, 11, 0.3);
+      flex-shrink: 0;
+    }
+
+    .cap-mentor-seal strong {
+      display: block;
+      font-size: 0.88rem;
+      color: var(--text-white);
+      margin-bottom: 2px;
+    }
+
+    .cap-mentor-seal p {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+      margin: 0;
+    }
+
     /* — Right Column: Form Terminal Card — */
     .cap-terminal-card {
       background: var(--bg-card);
@@ -710,6 +745,15 @@
                 <span>Acompanhamento direto e suporte técnico pedagógico de segunda a sábado</span>
               </li>
             </ul>
+
+            <!-- Mentor Seal -->
+            <div class="cap-mentor-seal">
+              <img src="/cesar_mentoria.jpg" alt="César — Mentor Método 369" class="cap-mentor-avatar">
+              <div>
+                <strong>Acompanhamento com César</strong>
+                <p>Orientação direta de quem opera e valida a metodologia institucional diariamente.</p>
+              </div>
+            </div>
           </div>
 
           <!-- COLUNA DIREITA: FORM TERMINAL CARD -->

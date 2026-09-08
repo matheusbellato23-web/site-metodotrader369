@@ -774,11 +774,32 @@ nav {
 .cmc-image-viewport .hero-widescreen-img {
   width: 100%;
   display: block;
-  min-height: 240px;
-  max-height: 290px;
+  min-height: 280px;
+  max-height: 350px;
   object-fit: cover;
-  opacity: 0.92;
+  object-position: center 20%;
+  opacity: 0.95;
   transition: transform 0.4s ease, opacity 0.3s;
+}
+
+.hero-mentor-tag {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: rgba(7, 9, 16, 0.88);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(245, 158, 11, 0.4);
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.6px;
+  color: var(--brand-gold-bright);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  z-index: 2;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.6);
 }
 
 .cmc-terminal-card:hover .hero-widescreen-img {
@@ -1345,7 +1366,55 @@ nav {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center top;
   display: block;
+}
+
+.mentor-badge-float {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  background: rgba(10, 13, 22, 0.92);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--border-gold);
+  border-radius: 14px;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8), 0 0 25px rgba(245, 158, 11, 0.2);
+}
+
+.mentor-badge-avatar img {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--brand-gold-bright);
+}
+
+.mentor-badge-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.mentor-badge-info strong {
+  font-size: 0.9rem;
+  color: var(--text-white);
+  font-family: var(--font-display);
+}
+
+.mentor-badge-info span {
+  font-size: 0.72rem;
+  color: var(--brand-gold-bright);
+  font-weight: 600;
+}
+
+.mentor-badge-check {
+  color: #10b981;
+  font-size: 1.1rem;
 }
 
 .mentor-card-box {
@@ -2137,6 +2206,33 @@ footer {
 .esteira-featured .esteira-icon-wrap {
   background: rgba(245,158,11,0.1);
   border-color: rgba(245,158,11,0.3);
+  color: var(--brand-gold-bright);
+}
+
+/* — MENTOR PILL (Mentoria Card) — */
+.esteira-mentor-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(245, 158, 11, 0.08);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  padding: 3px 10px 3px 4px;
+  border-radius: 999px;
+  width: fit-content;
+  margin: 0.2rem 0;
+}
+
+.esteira-mentor-thumb {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1.5px solid var(--brand-gold-bright);
+}
+
+.esteira-mentor-txt {
+  font-size: 0.7rem;
+  font-weight: 700;
   color: var(--brand-gold-bright);
 }
 
