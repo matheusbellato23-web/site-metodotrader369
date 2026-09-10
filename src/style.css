@@ -820,37 +820,12 @@ nav {
 .cmc-image-viewport .hero-widescreen-img {
   width: 100%;
   display: block;
-  min-height: 280px;
-  max-height: 350px;
+  min-height: 290px;
+  max-height: 380px;
   object-fit: cover;
-  object-position: center 20%;
-  opacity: 0.95;
+  object-position: center 15%;
+  opacity: 0.98;
   transition: transform 0.4s ease, opacity 0.35s ease;
-}
-
-.hero-widescreen-img.img-fading {
-  opacity: 0.2;
-  transform: scale(0.98);
-}
-
-.hero-mentor-tag {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  background: rgba(7, 9, 16, 0.88);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(245, 158, 11, 0.4);
-  border-radius: 6px;
-  padding: 4px 10px;
-  font-size: 0.65rem;
-  font-weight: 800;
-  letter-spacing: 0.6px;
-  color: var(--brand-gold-bright);
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  z-index: 2;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.6);
 }
 
 .cmc-terminal-card:hover .hero-widescreen-img {
